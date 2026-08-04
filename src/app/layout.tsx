@@ -1,13 +1,23 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Geist } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ChatBot from "@/components/ChatBot";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
+});
+
+const neuropol = localFont({
+  src: "../../public/assets/fonts/Neuropol.otf",
+  variable: "--font-neuropol",
   display: "swap",
 });
 
@@ -49,7 +59,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" className={`${inter.variable} antialiased`}>
+    <html lang="id" className={cn("antialiased", inter.variable, "font-sans", geist.variable, neuropol.variable)}>
       <body className="min-h-dvh flex flex-col bg-white text-slate-900">
         <Navbar />
         <main id="main-content" className="flex-1">

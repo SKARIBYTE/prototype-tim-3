@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { Check, FileText } from "lucide-react";
-import { ppdbTimeline, ppdbTracks } from "@/data/mockData";
+import { ppdbTimeline, ppdbTracks } from "@/data";
 
 export const metadata: Metadata = {
   title: "PPDB",

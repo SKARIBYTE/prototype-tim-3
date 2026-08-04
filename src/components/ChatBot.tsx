@@ -1,8 +1,13 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { MessageCircle, X, Send, Bot, User } from "lucide-react";
+import { BotMessageSquare, X, Send, Bot, User } from "lucide-react";
 import type { ChatMessage } from "@/types";
+import { cn } from "@/lib/utils";
+
+import { Card, CardHeader, CardContent, CardFooter, CardTitle, CardDescription } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 export default function ChatBot() {
   const [isOpen, setIsOpen] = useState(false);
@@ -95,56 +100,58 @@ export default function ChatBot() {
 
   return (
     <>
-      <button
+      <Button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-primary text-white shadow-lg hover:bg-primary-dark transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+        className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full shadow-lg cursor-pointer hover:scale-105 transition-transform"
         aria-label={isOpen ? "Tutup chat" : "Buka chat assistant"}
+        size="icon"
       >
         {isOpen ? (
           <X className="h-6 w-6" aria-hidden="true" />
         ) : (
-          <MessageCircle className="h-6 w-6" aria-hidden="true" />
+          <BotMessageSquare className="h-6 w-6" aria-hidden="true" />
         )}
-      </button>
+      </Button>
 
       {isOpen && (
-        <div
-          className="fixed bottom-24 right-6 z-50 w-80 sm:w-96 rounded-2xl bg-white shadow-2xl border border-slate-200 flex flex-col overflow-hidden"
+        <Card
+          className="fixed bottom-24 right-6 z-50 w-80 sm:w-96 h-[550px] max-h-[85vh] shadow-2xl flex flex-col overflow-hidden border-slate-200"
           role="dialog"
           aria-label="Chat Assistant SMK PGRI 3 Malang"
-          style={{ maxHeight: "70vh" }}
         >
-          <div className="bg-primary px-4 py-3 flex items-center gap-3">
+          <CardHeader className="bg-primary px-4 py-3 flex flex-row items-center gap-3 space-y-0 rounded-none border-b-0">
             <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/20">
               <Bot className="h-5 w-5 text-white" aria-hidden="true" />
             </div>
             <div>
-              <p className="text-sm font-semibold text-white">
+              <CardTitle className="text-sm font-semibold text-white">
                 Asisten PGRI 3
-              </p>
-              <p className="text-xs text-white/80">
+              </CardTitle>
+              <CardDescription className="text-xs text-white/80">
                 {isLoading ? "Mengetik..." : "Online"}
-              </p>
+              </CardDescription>
             </div>
-          </div>
+          </CardHeader>
 
-          <div
-            className="flex-1 overflow-y-auto p-4 space-y-3"
+          <CardContent
+            className="flex-1 overflow-y-auto p-4 space-y-3 bg-white"
             style={{ minHeight: "240px" }}
             aria-live="polite"
           >
             {messages.map((msg) => (
               <div
                 key={msg.id}
-                className={`flex items-start gap-2 ${
+                className={cn(
+                  "flex items-start gap-2",
                   msg.role === "user" ? "flex-row-reverse" : ""
-                }`}
+                )}
               >
                 <div
-                  className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full ${
+                  className={cn(
+                    "flex h-7 w-7 shrink-0 items-center justify-center rounded-full",
                     msg.role === "user" ? "bg-primary" : "bg-slate-100"
-                  }`}
+                  )}
                 >
                   {msg.role === "user" ? (
                     <User
@@ -159,11 +166,12 @@ export default function ChatBot() {
                   )}
                 </div>
                 <div
-                  className={`max-w-xs rounded-xl px-3 py-2 text-sm leading-relaxed ${
+                  className={cn(
+                    "max-w-xs rounded-xl px-3 py-2 text-sm leading-relaxed",
                     msg.role === "user"
                       ? "bg-primary text-white"
                       : "bg-slate-100 text-slate-700"
-                  }`}
+                  )}
                 >
                   {msg.content}
                 </div>
@@ -194,36 +202,34 @@ export default function ChatBot() {
               </div>
             )}
             <div ref={messagesEndRef} />
-          </div>
+          </CardContent>
 
-          <div className="border-t border-slate-100 p-3">
-            <div className="flex items-center gap-2">
-              <label htmlFor="chat-input" className="sr-only">
-                Ketik pesan
-              </label>
-              <input
-                ref={inputRef}
-                id="chat-input"
-                type="text"
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                onKeyDown={handleKeyDown}
-                placeholder="Ketik pesan..."
-                className="flex-1 rounded-lg border border-slate-200 px-3 py-2 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                disabled={isLoading}
-              />
-              <button
-                type="button"
-                onClick={sendMessage}
-                disabled={isLoading || !input.trim()}
-                className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-white hover:bg-primary-dark disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-                aria-label="Kirim pesan"
-              >
-                <Send className="h-4 w-4" aria-hidden="true" />
-              </button>
-            </div>
-          </div>
-        </div>
+          <CardFooter className="border-t border-slate-100 p-3 flex items-center gap-2 rounded-none bg-white">
+            <label htmlFor="chat-input" className="sr-only">
+              Ketik pesan
+            </label>
+            <Input
+              ref={inputRef}
+              id="chat-input"
+              type="text"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={handleKeyDown}
+              placeholder="Ketik pesan..."
+              className="flex-1"
+              disabled={isLoading}
+            />
+            <Button
+              type="button"
+              onClick={sendMessage}
+              disabled={isLoading || !input.trim()}
+              size="icon"
+              aria-label="Kirim pesan"
+            >
+              <Send className="h-4 w-4" aria-hidden="true" />
+            </Button>
+          </CardFooter>
+        </Card>
       )}
     </>
   );

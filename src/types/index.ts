@@ -14,6 +14,7 @@ export interface Department {
   name: string;
   abbreviation: string;
   description: string;
+  image: string;
   majors: Major[];
 }
 
