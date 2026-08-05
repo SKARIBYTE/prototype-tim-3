@@ -1,13 +1,5 @@
 import type {
-  Department,
-  AlumniProfile,
-  IndustryPartner,
-  Achievement,
-  BLUDProduct,
-  BKKJob,
-  PPDBTimeline,
-  PPDBTrack,
-  Equipment,
+  PPDBTimeline
 } from "@/types";
 
 export const ppdbTimeline: PPDBTimeline[] = [

@@ -1,13 +1,5 @@
 import type {
-  Department,
-  AlumniProfile,
-  IndustryPartner,
-  Achievement,
-  BLUDProduct,
-  BKKJob,
-  PPDBTimeline,
-  PPDBTrack,
-  Equipment,
+  AlumniProfile
 } from "@/types";
 
 export const alumniProfiles: AlumniProfile[] = [

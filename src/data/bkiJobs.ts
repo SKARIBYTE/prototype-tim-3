@@ -1,13 +1,5 @@
 import type {
-  Department,
-  AlumniProfile,
-  IndustryPartner,
-  Achievement,
-  BLUDProduct,
   BKKJob,
-  PPDBTimeline,
-  PPDBTrack,
-  Equipment,
 } from "@/types";
 
 export const bkiJobs: BKKJob[] = [

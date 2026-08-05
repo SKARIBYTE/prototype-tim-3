@@ -3,7 +3,7 @@ import type {
 } from "@/types";
 
 export const equipmentData: Equipment[] = [
-  // ele
+  // elektro
   {
     id: "beaker-glass",
     name: "Beaker Glass",
