@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Hero from "@/components/Hero";
 import { TeacherCarousel } from "@/components/TeacherCarousel";
 
 export const metadata: Metadata = {
@@ -43,10 +42,16 @@ const TEAMS = [
 export default function ProfilGuruPage() {
   return (
     <main className="min-h-[100dvh] bg-slate-50 pb-32">
-      <Hero
-        title="Profil Guru"
-        description="Daftar tenaga pendidik profesional dan staf akademik SMK PGRI 3 Malang."
-      />
+      <section className="bg-slate-900 pt-32 pb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">
+            Profil Guru
+          </h1>
+          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+            Daftar tenaga pendidik profesional dan staf akademik SMK PGRI 3 Malang.
+          </p>
+        </div>
+      </section>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 space-y-24">
         {TEAMS.map((team, idx) => (
