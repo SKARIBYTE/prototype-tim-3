@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Hero from "@/components/Hero";
+import ProfileContent from "./ProfileContent";
 
 export const metadata: Metadata = {
   title: "Profil Sekolah",
@@ -9,15 +10,11 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <main className="min-h-[100dvh] bg-slate-50 pb-24">
-      <Hero 
+      <Hero
         title="Profil Sekolah"
         description="Informasi lengkap mengenai visi, misi, dan sejarah SMK PGRI 3 Malang."
       />
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-12 text-center">
-          <p className="text-slate-500 text-lg">Halaman ini sedang dalam tahap pengembangan.</p>
-        </div>
-      </section>
+      <ProfileContent />
     </main>
   );
 }
