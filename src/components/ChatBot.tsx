@@ -62,9 +62,11 @@ export default function ChatBot() {
         }),
       });
 
-      if (!response.ok) throw new Error("Gagal menghubungi server");
+      const data = await response.json().catch(() => null);
 
-      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data?.content || "Gagal menghubungi server");
+      }
 
       setMessages((prev) => [
         ...prev,
@@ -75,14 +77,15 @@ export default function ChatBot() {
           timestamp: Date.now(),
         },
       ]);
-    } catch {
+    } catch (err: unknown) {
+      const errorMessage =
+        err instanceof Error ? err.message : "Maaf, terjadi kesalahan. Silakan coba lagi atau hubungi kami langsung di (0341) 551525.";
       setMessages((prev) => [
         ...prev,
         {
           id: `error-${Date.now()}`,
           role: "assistant",
-          content:
-            "Maaf, terjadi kesalahan. Silakan coba lagi atau hubungi kami langsung di (0341) 551525.",
+          content: errorMessage,
           timestamp: Date.now(),
         },
       ]);
@@ -216,6 +219,7 @@ export default function ChatBot() {
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
               placeholder="Ketik pesan..."
+              maxLength={100}
               className="flex-1"
               disabled={isLoading}
             />

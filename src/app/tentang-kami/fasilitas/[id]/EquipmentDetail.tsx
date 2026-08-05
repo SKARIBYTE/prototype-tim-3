@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
@@ -22,8 +22,31 @@ export default function EquipmentDetail({ equipment, departments, allEquipment }
   const [viewMode, setViewMode] = useState<"2D" | "3D">("2D");
 
   const currentIndex = allEquipment.findIndex(eq => eq.id === equipment.id);
-  const prevId = currentIndex > 0 ? allEquipment[currentIndex - 1].id : null;
-  const nextId = currentIndex < allEquipment.length - 1 ? allEquipment[currentIndex + 1].id : null;
+  const prevEquipment = currentIndex > 0 ? allEquipment[currentIndex - 1] : null;
+  const nextEquipment = currentIndex < allEquipment.length - 1 ? allEquipment[currentIndex + 1] : null;
+  const prevId = prevEquipment?.id || null;
+  const nextId = nextEquipment?.id || null;
+
+  const prefetchModel = useCallback((url?: string) => {
+    if (!url) return;
+    const linkId = `prefetch-${encodeURIComponent(url)}`;
+    if (document.getElementById(linkId)) return;
+    const link = document.createElement("link");
+    link.id = linkId;
+    link.rel = "prefetch";
+    link.href = url;
+    link.as = "fetch";
+    link.crossOrigin = "anonymous";
+    document.head.appendChild(link);
+  }, []);
+
+  // Preload models when 3D mode is activated
+  useEffect(() => {
+    if (viewMode === "3D") {
+      //if (prevEquipment?.modelUrl) prefetchModel(prevEquipment.modelUrl);
+      if (nextEquipment?.modelUrl) prefetchModel(nextEquipment.modelUrl);
+    }
+  }, [viewMode, prevEquipment, nextEquipment, prefetchModel]);
 
   const department = departments.find(d => d.id === equipment.departmentId);
 
@@ -78,7 +101,11 @@ export default function EquipmentDetail({ equipment, departments, allEquipment }
 
         <div className="absolute inset-y-0 left-4 sm:left-8 flex items-center z-10">
           {prevId ? (
-            <Link href={`/tentang-kami/fasilitas/${prevId}`} className="p-3 bg-white bg-opacity-80 backdrop-blur rounded-full shadow-md text-slate-700 hover:text-primary hover:scale-110 transition-all border border-slate-100">
+            <Link
+              href={`/tentang-kami/fasilitas/${prevId}`}
+              onMouseEnter={() => prefetchModel(prevEquipment?.modelUrl)}
+              className="p-3 bg-white bg-opacity-80 backdrop-blur rounded-full shadow-md text-slate-700 hover:text-primary hover:scale-110 transition-all border border-slate-100"
+            >
               <ChevronLeft className="w-6 h-6" />
             </Link>
           ) : (
@@ -90,7 +117,11 @@ export default function EquipmentDetail({ equipment, departments, allEquipment }
 
         <div className="absolute inset-y-0 right-4 sm:right-8 flex items-center z-10">
           {nextId ? (
-            <Link href={`/tentang-kami/fasilitas/${nextId}`} className="p-3 bg-white bg-opacity-80 backdrop-blur rounded-full shadow-md text-slate-700 hover:text-primary hover:scale-110 transition-all border border-slate-100">
+            <Link
+              href={`/tentang-kami/fasilitas/${nextId}`}
+              onMouseEnter={() => prefetchModel(nextEquipment?.modelUrl)}
+              className="p-3 bg-white bg-opacity-80 backdrop-blur rounded-full shadow-md text-slate-700 hover:text-primary hover:scale-110 transition-all border border-slate-100"
+            >
               <ChevronRight className="w-6 h-6" />
             </Link>
           ) : (
@@ -106,12 +137,15 @@ export default function EquipmentDetail({ equipment, departments, allEquipment }
               src={equipment.image}
               alt={equipment.name}
               fill
+              priority
               className="object-contain p-4"
             />
           ) : (
             equipment.modelUrl && (
               <model-viewer
                 src={equipment.modelUrl}
+                poster={equipment.image}
+                loading="eager"
                 alt={`3D ${equipment.name}`}
                 auto-rotate
                 camera-controls
