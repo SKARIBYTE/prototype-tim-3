@@ -77,7 +77,7 @@ export default function Home() {
                     <Trophy className="h-6 w-6" />
                   </div>
                   <div>
-                    <p className="text-2xl font-bold text-slate-900">25+ Tahun</p>
+                    <p className="text-2xl font-bold text-slate-900">10+ Tahun</p>
                     <p className="text-sm font-medium text-slate-500">Mencetak Lulusan Terbaik</p>
                   </div>
                 </div>

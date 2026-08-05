@@ -100,13 +100,12 @@ export default function EquipmentDetail({ equipment, departments, allEquipment }
           )}
         </div>
 
-        <div className="w-full max-w-4xl aspect-video relative rounded-2xl overflow-hidden mb-8 flex items-center justify-center mx-auto">
+        <div className="w-full max-h-126 aspect-video relative rounded-2xl overflow-hidden mb-8 flex items-center justify-center mx-auto">
           {viewMode === "2D" ? (
             <Image
               src={equipment.image}
               alt={equipment.name}
               fill
-              sizes="(max-width: 768px) 100vw, 80vw"
               className="object-contain p-4"
             />
           ) : (
@@ -123,7 +122,7 @@ export default function EquipmentDetail({ equipment, departments, allEquipment }
           )}
         </div>
 
-        <div className="w-full max-w-4xl mx-auto flex flex-col md:flex-row gap-8 items-start">
+        <div className="w-full max-w-7xl mx-auto flex flex-col md:flex-row gap-8 items-start">
           <div className="flex-1 space-y-4">
             <div className="flex flex-wrap gap-2 mb-2">
               {tags.map((tag, i) => (
