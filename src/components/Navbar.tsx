@@ -33,7 +33,7 @@ const ListItem = forwardRef<
           "group block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors",
           isActive
             ? "bg-primary text-white hover:bg-primary/90 hover:text-white"
-            : "!bg-transparent hover:!bg-transparent focus:!bg-transparent hover:text-primary focus:text-primary",
+            : "bg-transparent hover:bg-transparent focus:bg-transparent hover:text-primary focus:text-primary",
           className
         )}
         {...props}
@@ -137,12 +137,12 @@ export default function Navbar() {
                             navigationMenuTriggerStyle(),
                             "cursor-pointer",
                             isActive
-                              ? "text-primary/90 !bg-transparent hover:!text-primary hover:!bg-transparent focus:!bg-transparent focus:!text-primary"
+                              ? "text-primary/90 bg-transparent hover:text-primary hover:bg-transparent focus:bg-transparent focus:text-primary"
                               : cn(
-                                  "!bg-transparent hover:!bg-transparent focus:!bg-transparent",
+                                  "bg-transparent hover:bg-transparent focus:bg-transparent",
                                   isScrolledOrNotHome
-                                    ? "text-slate-600 hover:!text-primary focus:text-primary!"
-                                    : "text-white/90 hover:!text-primary focus:text-primary!"
+                                    ? "text-slate-600 hover:text-primary focus:text-primary!"
+                                    : "text-white/90 hover:text-primary focus:text-primary!"
                                 )
                           )}
                         >
@@ -157,13 +157,13 @@ export default function Navbar() {
                       <NavigationMenuItem key={idx}>
                         <NavigationMenuTrigger
                           className={cn(
-                            "cursor-pointer !bg-transparent hover:!bg-transparent data-[state=open]:!bg-transparent focus:!bg-transparent",
+                            "cursor-pointer bg-transparent hover:bg-transparent data-[state=open]:bg-transparent focus:bg-transparent",
                             isActive
-                              ? "text-primary/90 hover:!text-primary data-[state=open]:!text-primary focus:!text-primary"
+                              ? "text-primary/90 hover:text-primary data-[state=open]:text-primary focus:text-primary!"
                               : cn(
                                   isScrolledOrNotHome
-                                    ? "text-slate-600 hover:!text-primary data-[state=open]:!text-primary focus:!text-primary"
-                                    : "text-white/90 hover:!text-primary data-[state=open]:!text-primary focus:!text-primary"
+                                    ? "text-slate-600 hover:text-primary data-[state=open]:text-primary focus:text-primary"
+                                    : "text-white/90 hover:text-primary data-[state=open]:text-primary focus:text-primary"
                                 )
                           )}
                         >

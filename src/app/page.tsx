@@ -15,17 +15,17 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className="flex flex-col min-h-screen">
-      <section className="relative min-h-[100dvh] flex items-center justify-center pt-32 pb-20 overflow-hidden text-white">
+      <section className="relative min-h-dvh flex items-center justify-center pt-32 pb-20 overflow-hidden text-white">
         <div className="absolute inset-0 z-0">
           <Image
             src="https://picsum.photos/seed/hero-skariga/1920/1080"
-            alt="SMK PGRI 3 Malang Campus"
+            alt="SMK PGRI 3 Malang"
             fill
             className="object-cover object-center"
             priority
           />
           <div className="absolute inset-0 bg-slate-900/70" />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-slate-900 via-slate-900/20 to-transparent" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center flex flex-col items-center">
@@ -63,7 +63,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="relative">
               <div className="absolute -inset-4 bg-primary/5 rounded-3xl transform -rotate-3" />
-              <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-slate-100 shadow-xl">
+              <div className="relative aspect-4/5 rounded-2xl overflow-hidden border border-slate-100 shadow-xl">
                 <Image
                   src="/assets/images/kepsek.webp"
                   alt="Kepala Sekolah SMK PGRI 3 Malang"
@@ -86,7 +86,7 @@ export default function Home() {
             <div>
               <h2 className="text-sm font-bold tracking-widest text-primary uppercase mb-3">Sambutan Kepala Sekolah</h2>
               <h3 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-6 leading-tight">
-                Selamat Datang di Kampus Inovasi SMK PGRI 3 Malang
+                Selamat Datang di <br/> SMK PGRI 3 Malang
               </h3>
               <div className="prose prose-lg text-slate-600 prose-p:leading-relaxed">
                 <p>
@@ -176,14 +176,14 @@ export default function Home() {
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {departments.map((dept) => (
-              <Link key={dept.id} href={`/program/jurusan#${dept.id}`} className="group relative aspect-[3/4] rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 block">
+              <Link key={dept.id} href={`/program/jurusan#${dept.id}`} className="group relative aspect-3/4 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 block">
                 <Image
                   src={dept.image}
                   alt={dept.name}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-slate-900/90 via-slate-900/40 to-transparent" />
                 <div className="absolute inset-0 p-6 flex flex-col justify-end">
                   <div className="mb-4">
                     <h4 className="text-xl font-bold text-white mb-2">{dept.name}</h4>
@@ -224,8 +224,8 @@ export default function Home() {
               animation-play-state: paused;
             }
           `}} />
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-slate-900 to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-slate-900 to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-32 bg-linear-to-r from-slate-900 to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-32 bg-linear-to-l from-slate-900 to-transparent z-10 pointer-events-none" />
           
           <div className="flex animate-marquee whitespace-nowrap items-center">
             {industryPartners.map((partner) => (
@@ -234,7 +234,7 @@ export default function Home() {
                   src={partner.logo}
                   alt={partner.name}
                   width={180}
-                  height={70}
+                  height={180}
                   className="h-12 lg:h-16 w-auto object-contain brightness-0 invert"
                 />
               </div>

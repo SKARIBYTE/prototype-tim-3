@@ -116,7 +116,7 @@ export default function ChatBot() {
 
       {isOpen && (
         <Card
-          className="fixed bottom-24 right-6 z-50 w-80 sm:w-96 h-[550px] max-h-[85vh] shadow-2xl flex flex-col overflow-hidden border-slate-200"
+          className="fixed bottom-24 right-6 z-50 w-80 sm:w-96 h-137.5 max-h-[85vh] shadow-2xl flex flex-col overflow-hidden border-slate-200"
           role="dialog"
           aria-label="Chat Assistant SMK PGRI 3 Malang"
         >

@@ -41,9 +41,9 @@ export const departments: Department[] = [
         icon: "Monitor",
       },
       {
-        id: "tei",
+        id: "ei",
         name: "Teknik Elektronika Industri",
-        abbreviation: "TEI",
+        abbreviation: "EI",
         departmentId: "elektro",
         description:
           "Fokus pada sistem otomasi industri, kontrol proses, dan instrumentasi untuk kebutuhan manufaktur modern.",
@@ -62,9 +62,9 @@ export const departments: Department[] = [
         icon: "Cpu",
       },
       {
-        id: "tki",
+        id: "ki",
         name: "Teknik Kimia Industri",
-        abbreviation: "TKI",
+        abbreviation: "KI",
         departmentId: "elektro",
         description:
           "Mempelajari proses kimia industri, pengendalian mutu, dan pengolahan bahan baku menjadi produk bernilai tinggi.",
@@ -83,9 +83,9 @@ export const departments: Department[] = [
         icon: "FlaskConical",
       },
       {
-        id: "tptl",
+        id: "pb",
         name: "Teknik Pembangkit Tenaga Listrik",
-        abbreviation: "TPTL",
+        abbreviation: "PB",
         departmentId: "elektro",
         description:
           "Mendalami sistem pembangkitan, transmisi, dan distribusi tenaga listrik skala industri.",
@@ -156,9 +156,9 @@ export const departments: Department[] = [
         icon: "Car",
       },
       {
-        id: "tbo",
+        id: "bo",
         name: "Teknik Body Otomotif",
-        abbreviation: "TBO",
+        abbreviation: "BO",
         departmentId: "otomotif",
         description:
           "Spesialisasi perbaikan dan pengecatan body kendaraan dengan teknik dan material profesional.",
@@ -208,9 +208,9 @@ export const departments: Department[] = [
         icon: "ShoppingBag",
       },
       {
-        id: "tp",
+        id: "tl",
         name: "Teknik Pengelasan",
-        abbreviation: "TP",
+        abbreviation: "TL",
         departmentId: "pemesinan",
         description:
           "Menguasai berbagai teknik pengelasan (SMAW, GMAW, GTAW) sesuai standar internasional.",
@@ -229,9 +229,9 @@ export const departments: Department[] = [
         icon: "Flame",
       },
       {
-        id: "tpm",
+        id: "tp",
         name: "Teknik Pemesinan",
-        abbreviation: "TPM",
+        abbreviation: "TP",
         departmentId: "pemesinan",
         description:
           "Mempelajari operasi mesin konvensional dan CNC untuk produksi komponen presisi.",
@@ -260,9 +260,9 @@ export const departments: Department[] = [
     image: "/assets/images/tik.webp",
     majors: [
       {
-        id: "animasi",
+        id: "nima",
         name: "Animasi",
-        abbreviation: "ANI",
+        abbreviation: "NIMA",
         departmentId: "tik",
         description:
           "Membuat konten animasi 2D dan 3D untuk industri kreatif, game, dan media digital.",
@@ -302,9 +302,9 @@ export const departments: Department[] = [
         icon: "Palette",
       },
       {
-        id: "bcp",
+        id: "bp",
         name: "Broadcasting dan Perfilman",
-        abbreviation: "BCP",
+        abbreviation: "BP",
         departmentId: "tik",
         description:
           "Menguasai produksi konten audio visual, penyiaran, dan sinematografi profesional.",

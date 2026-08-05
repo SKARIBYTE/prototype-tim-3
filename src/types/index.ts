@@ -22,12 +22,9 @@ export interface Equipment {
   id: string;
   name: string;
   description: string;
-  majorId: string;
   departmentId: string;
   image: string;
   modelUrl?: string;
-  quantity: number;
-  condition: "Baik" | "Cukup" | "Perlu Perbaikan";
 }
 
 export interface AlumniProfile {
