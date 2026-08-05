@@ -99,7 +99,7 @@ export const navigationData: NavSection[] = [
     title: "Karir",
     items: [
       {
-        title: "BKI (Bursa Kerja Industri)",
+        title: "BKI (Bidang Kerjasama Industri)",
         href: "/karir/bki",
         description: "Informasi lowongan dan rekrutmen.",
       },

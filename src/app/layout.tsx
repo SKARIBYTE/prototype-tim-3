@@ -59,7 +59,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" className={cn("antialiased", inter.variable, "font-sans", geist.variable, neuropol.variable)}>
+    <html lang="id" className={cn("antialiased", inter.variable, "font-sans", geist.variable, neuropol.variable)} data-scroll-behavior="smooth">
       <body className="min-h-dvh flex flex-col bg-white text-slate-900">
         <Navbar />
         <main id="main-content" className="flex-1">

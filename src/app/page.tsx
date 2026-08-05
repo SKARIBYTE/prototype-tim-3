@@ -21,6 +21,7 @@ export default function Home() {
             src="https://picsum.photos/seed/hero-skariga/1920/1080"
             alt="SMK PGRI 3 Malang"
             fill
+            sizes="100vw"
             className="object-cover object-center"
             priority
           />
@@ -68,6 +69,7 @@ export default function Home() {
                   src="/assets/images/kepsek.webp"
                   alt="Kepala Sekolah SMK PGRI 3 Malang"
                   fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"
                 />
               </div>
@@ -181,6 +183,7 @@ export default function Home() {
                   src={dept.image}
                   alt={dept.name}
                   fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-slate-900/90 via-slate-900/40 to-transparent" />

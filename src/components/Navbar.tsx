@@ -15,7 +15,8 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
-import { navigationData, NavSection, NavItem } from "@/data";
+import { navigationData, NavSection } from "@/data";
+import { Button } from "./ui/button";
 
 const ListItem = forwardRef<
   React.ElementRef<"a">,
@@ -89,7 +90,7 @@ export default function Navbar() {
       role="banner"
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-300 border-b",
-        isScrolledOrNotHome
+        scrolled
           ? "bg-white/95 backdrop-blur-md shadow-sm border-slate-100 py-3"
           : "bg-transparent border-transparent py-5"
       )}
@@ -251,7 +252,7 @@ export default function Navbar() {
                 if (section.items) {
                   return (
                     <div key={idx} className="space-y-2">
-                      <button
+                      <Button
                         className={cn("flex items-center justify-between w-full font-medium py-2 px-3 rounded-md", isActive ? "bg-primary text-white" : "text-slate-700 hover:text-primary")}
                         onClick={() => toggleSection(section.title.toLowerCase())}
                       >
@@ -261,7 +262,7 @@ export default function Navbar() {
                             openSection === section.title.toLowerCase() ? "rotate-180" : ""
                           }`}
                         />
-                      </button>
+                      </Button>
                       {openSection === section.title.toLowerCase() && (
                         <div className="pl-4 space-y-3 py-2 border-l-2 border-slate-100">
                           {section.items.map((item, itemIdx) => {
