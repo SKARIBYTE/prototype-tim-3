@@ -227,7 +227,7 @@ export default function Home() {
           <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-slate-900 to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-slate-900 to-transparent z-10 pointer-events-none" />
           
-          <div className="flex animate-marquee whitespace-nowrap items-center">
+          <div className="flex shrink-0 animate-marquee whitespace-nowrap items-center">
             {industryPartners.map((partner) => (
               <div key={partner.id} className="mx-8 lg:mx-12 flex items-center justify-center grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300 transform hover:scale-110">
                 <Image
@@ -235,12 +235,12 @@ export default function Home() {
                   alt={partner.name}
                   width={180}
                   height={70}
-                  className="h-12 lg:h-16 w-auto object-contain brightness-0 invert"
+                  className="h-12 lg:h-16 w-auto object-contain"
                 />
               </div>
             ))}
           </div>
-          <div className="flex animate-marquee whitespace-nowrap items-center">
+          <div className="flex shrink-0 animate-marquee whitespace-nowrap items-center">
             {industryPartners.map((partner) => (
               <div key={partner.id + "-duplicate"} className="mx-8 lg:mx-12 flex items-center justify-center grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300 transform hover:scale-110">
                 <Image
@@ -248,7 +248,7 @@ export default function Home() {
                   alt={partner.name}
                   width={180}
                   height={70}
-                  className="h-12 lg:h-16 w-auto object-contain brightness-0 invert"
+                  className="h-12 lg:h-16 w-auto object-contain"
                 />
               </div>
             ))}
