@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, forwardRef } from "react";
+import { useState, useEffect, forwardRef, useMemo } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
@@ -51,18 +51,41 @@ const ListItem = forwardRef<
 });
 ListItem.displayName = "ListItem";
 
-export default function Navbar() {
+export default function Navbar({ backDark = false }: { backDark?: boolean } = {}) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [openSection, setOpenSection] = useState<string | null>(null);
   const pathname = usePathname();
   
-  const isScrolledOrNotHome = scrolled || pathname !== "/";
+  // Determine if current path has backDark attribute in menu data
+  const hasBackDarkInMenu = useMemo(() => {
+    for (const section of navigationData) {
+      if (section.href === pathname && section.backDark) return true;
+      if (section.items) {
+        const item = section.items.find(item => pathname === item.href || pathname?.startsWith(item.href));
+        if (item && item.backDark) return true;
+      }
+    }
+    return false;
+  }, [pathname]);
+
+  const isHomePageBehavior = backDark || hasBackDarkInMenu || pathname === "/";
+  const isDarkText = scrolled || menuOpen || !isHomePageBehavior;
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 20);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
+    
+    handleScroll();
+    
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -90,7 +113,7 @@ export default function Navbar() {
       role="banner"
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-300 border-b",
-        scrolled
+        scrolled || menuOpen
           ? "bg-white/95 backdrop-blur-md shadow-sm border-slate-100 py-3"
           : "bg-transparent border-transparent py-5"
       )}
@@ -114,8 +137,8 @@ export default function Navbar() {
             />
             <span
               className={cn(
-                "text-lg font-bold tracking-wider transition-colors duration-300 font-neuropol",
-                isScrolledOrNotHome ? "text-slate-900" : "text-white"
+                "text-xl font-bold tracking-wider transition-colors duration-300 font-neuropol",
+                isDarkText ? "text-slate-900" : "text-white"
               )}
             >
               SMK PGRI 3 Malang
@@ -141,7 +164,7 @@ export default function Navbar() {
                               ? "text-primary/90 bg-transparent hover:text-primary hover:bg-transparent focus:bg-transparent focus:text-primary"
                               : cn(
                                   "bg-transparent hover:bg-transparent focus:bg-transparent",
-                                  isScrolledOrNotHome
+                                  isDarkText
                                     ? "text-slate-600 hover:text-primary focus:text-primary!"
                                     : "text-white/90 hover:text-primary focus:text-primary!"
                                 )
@@ -162,7 +185,7 @@ export default function Navbar() {
                             isActive
                               ? "text-primary/90 hover:text-primary data-[state=open]:text-primary focus:text-primary!"
                               : cn(
-                                  isScrolledOrNotHome
+                                  isDarkText
                                     ? "text-slate-600 hover:text-primary data-[state=open]:text-primary focus:text-primary"
                                     : "text-white/90 hover:text-primary data-[state=open]:text-primary focus:text-primary"
                                 )
@@ -195,10 +218,10 @@ export default function Navbar() {
           <button
             type="button"
             className={cn(
-              "md:hidden p-2 rounded-lg transition-colors",
-              isScrolledOrNotHome
-                ? "text-slate-600 hover:bg-slate-100"
-                : "text-white hover:bg-white/10"
+              "md:hidden p-2 rounded-lg transition-colors cursor-pointer",
+              isDarkText
+                ? "text-slate-600 active:bg-slate-100"
+                : "text-white active:bg-white/10"
             )}
             onClick={() => setMenuOpen(!menuOpen)}
             aria-expanded={menuOpen}
@@ -224,24 +247,11 @@ export default function Navbar() {
                 const isActive = isSectionActive(section);
                 
                 if (section.href && !section.items) {
-                  if (section.href === "/ppdb") {
-                    return (
-                      <Link
-                        key={idx}
-                        href={section.href}
-                        className={cn("block w-full mt-6 py-3 px-4 text-center font-medium rounded-lg", isActive ? "bg-primary text-white ring-2 ring-primary ring-offset-2" : "bg-primary text-white")}
-                        onClick={() => setMenuOpen(false)}
-                      >
-                        {section.title}
-                      </Link>
-                    );
-                  }
-
                   return (
                     <Link
                       key={idx}
                       href={section.href}
-                      className={cn("block font-medium py-2 rounded-md px-3", isActive ? "bg-primary text-white" : "text-slate-700 hover:text-primary")}
+                      className={cn("block font-medium py-2 rounded-md px-3 bg-transparent cursor-pointer", isActive ? "text-primary/90 font-bold" : "text-slate-700 hover:text-primary")}
                       onClick={() => setMenuOpen(false)}
                     >
                       {section.title}
@@ -253,7 +263,8 @@ export default function Navbar() {
                   return (
                     <div key={idx} className="space-y-2">
                       <Button
-                        className={cn("flex items-center justify-between w-full font-medium py-2 px-3 rounded-md", isActive ? "bg-primary text-white" : "text-slate-700 hover:text-primary")}
+                        variant="ghost"
+                        className={cn("flex items-center justify-between w-full font-medium py-2 px-3 rounded-md hover:bg-transparent focus:bg-transparent", isActive ? "text-primary/90 font-bold" : "text-slate-700 hover:text-primary")}
                         onClick={() => toggleSection(section.title.toLowerCase())}
                       >
                         {section.title}
@@ -268,7 +279,7 @@ export default function Navbar() {
                           {section.items.map((item, itemIdx) => {
                             const isItemActive = pathname === item.href || (item.href !== "/" && pathname?.startsWith(item.href));
                             return (
-                              <Link key={itemIdx} href={item.href} className={cn("block text-sm", isItemActive ? "text-primary font-bold" : "text-slate-600 hover:text-primary")} onClick={() => setMenuOpen(false)}>
+                              <Link key={itemIdx} href={item.href} className={cn("block text-sm cursor-pointer", isItemActive ? "text-primary font-bold" : "text-slate-600 hover:text-primary")} onClick={() => setMenuOpen(false)}>
                                 {item.title}
                               </Link>
                             );

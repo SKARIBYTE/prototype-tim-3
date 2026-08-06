@@ -4,6 +4,7 @@ import Link from "next/link";
 import DisplayCards from "@/components/ui/display-cards";
 import DraggableScroll from "@/components/ui/draggable-scroll";
 import { Factory, Globe, Zap } from "lucide-react";
+import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
   title: "Kerjasama Industri",
@@ -120,26 +121,12 @@ const heroCards = [
 
 export default function Page() {
   return (
-    <main className="min-h-[100dvh] bg-slate-50">
-      <section className="bg-slate-900 pt-32 pb-32 lg:pb-40 overflow-hidden relative">
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h1 className="text-4xl sm:text-5xl font-bold text-white leading-tight mb-5">
-                Kerjasama Industri
-              </h1>
-              <p className="text-slate-400 text-lg leading-relaxed max-w-lg">
-                Jaringan mitra industri terpercaya untuk praktik kerja lapangan dan penempatan kerja lulusan SMK PGRI 3 Malang.
-              </p>
-            </div>
-            
-            <div className="flex justify-center lg:justify-end">
-              <DisplayCards cards={heroCards} />
-            </div>
-          </div>
-        </div>
-      </section>
+    <main className="bg-slate-50">
+      <PageHero
+        title="Kerjasama Industri"
+        subtitle="Jaringan mitra industri terpercaya untuk praktik kerja lapangan dan penempatan kerja lulusan SMK PGRI 3 Malang."
+        imageSrc="https://picsum.photos/seed/skariga-kerjasama/1920/1080"
+      />
 
       <section className="py-20 bg-slate-50 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">

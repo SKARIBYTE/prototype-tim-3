@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Hero from "@/components/Hero";
+import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
   title: "Alumni",
@@ -9,9 +9,10 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <main className="min-h-[100dvh] bg-slate-50 pb-24">
-      <Hero 
+      <PageHero
         title="Alumni"
-        description="Jaringan ikatan alumni dan kisah sukses lulusan SMK PGRI 3 Malang."
+        subtitle="Jaringan ikatan alumni dan kisah sukses lulusan SMK PGRI 3 Malang."
+        imageSrc="https://picsum.photos/seed/skariga-alumni/1920/1080"
       />
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-12 text-center">

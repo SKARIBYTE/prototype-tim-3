@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import PageHero from "@/components/PageHero";
 import { bkiJobs } from "@/data";
 import { MapPin, DollarSign, Calendar, ChevronRight } from "lucide-react";
 import Link from "next/link";
@@ -19,14 +20,11 @@ function getTypeStyles(type: string) {
 export default function BkkPage() {
   return (
     <main className="min-h-screen bg-slate-50 pb-24">
-      <section className="bg-slate-900 pt-32 pb-16 text-white text-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">Bursa Kerja Khusus</h1>
-          <p className="text-lg text-slate-300 max-w-2xl mx-auto">
-            Jembatan karir siswa dan alumni SMK PGRI 3 Malang dengan dunia usaha dan industri.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        title="Bursa Kerja Khusus"
+        subtitle="Jembatan karir siswa dan alumni SMK PGRI 3 Malang dengan dunia usaha dan industri."
+        imageSrc="https://picsum.photos/seed/skariga-bki/1920/1080"
+      />
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex flex-wrap items-center gap-2 mb-8">

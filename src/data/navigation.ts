@@ -2,12 +2,14 @@ export interface NavItem {
   title: string;
   href: string;
   description?: string;
+  backDark?: boolean;
 }
 
 export interface NavSection {
   title: string;
   href?: string;
   items?: NavItem[];
+  backDark?: boolean;
 }
 
 export const navigationData: NavSection[] = [

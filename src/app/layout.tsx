@@ -5,6 +5,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ChatBot from "@/components/ChatBot";
+import LenisProvider from "@/components/LenisProvider";
 import { cn } from "@/lib/utils";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
@@ -59,14 +60,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" className={cn("antialiased", inter.variable, "font-sans", geist.variable, neuropol.variable)} data-scroll-behavior="smooth">
+    <html lang="id" className={cn("antialiased", inter.variable, "font-sans", geist.variable, neuropol.variable)}>
       <body className="min-h-dvh flex flex-col bg-white text-slate-900">
-        <Navbar />
-        <main id="main-content" className="flex-1">
-          {children}
-        </main>
-        <Footer />
-        <ChatBot />
+        <LenisProvider>
+          <Navbar />
+          <main id="main-content" className="flex-1">
+            {children}
+          </main>
+          <Footer />
+          <ChatBot />
+        </LenisProvider>
       </body>
     </html>
   );

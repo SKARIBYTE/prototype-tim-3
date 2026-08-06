@@ -40,7 +40,6 @@ export default function EquipmentDetail({ equipment, departments, allEquipment }
     document.head.appendChild(link);
   }, []);
 
-  // Preload models when 3D mode is activated
   useEffect(() => {
     if (viewMode === "3D") {
       //if (prevEquipment?.modelUrl) prefetchModel(prevEquipment.modelUrl);
@@ -53,7 +52,7 @@ export default function EquipmentDetail({ equipment, departments, allEquipment }
   const tags = [department?.name].filter(Boolean);
 
   return (
-    <div className="min-h-screen bg-slate-50 pt-20 pb-12 flex flex-col mt-8">
+    <div className="min-h-screen bg-slate-50 pt-20 pb-12 flex flex-col mt-8" data-lenis-prevent>
       <Script
         src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"
         strategy="lazyOnload"
@@ -131,7 +130,7 @@ export default function EquipmentDetail({ equipment, departments, allEquipment }
           )}
         </div>
 
-        <div className="w-full max-h-126 aspect-video relative rounded-2xl overflow-hidden mb-8 flex items-center justify-center mx-auto">
+        <div className="w-full max-h-[600px] aspect-video relative rounded-2xl overflow-hidden mb-8 flex items-center justify-center mx-auto" data-lenis-prevent>
           {viewMode === "2D" ? (
             <Image
               src={equipment.image}
@@ -151,6 +150,7 @@ export default function EquipmentDetail({ equipment, departments, allEquipment }
                 camera-controls
                 shadow-intensity="1"
                 className="w-full h-full bg-transparent"
+                data-lenis-prevent
               ></model-viewer>
             )
           )}

@@ -3,6 +3,7 @@ import { bludProducts } from "@/data";
 import { Phone, Mail, CheckCircle2, XCircle } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
   title: "BLUD",
@@ -11,15 +12,12 @@ export const metadata: Metadata = {
 
 export default function BludPage() {
   return (
-    <main className="min-h-screen bg-slate-50 pb-24">
-      <section className="bg-slate-900 pt-32 pb-16 text-white text-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">Produk dan Layanan BLUD</h1>
-          <p className="text-lg text-slate-300 max-w-2xl mx-auto">
-            Produk dan layanan unggulan hasil Teaching Factory SMK PGRI 3 Malang dengan standar kualitas industri.
-          </p>
-        </div>
-      </section>
+    <main className="bg-slate-50 pb-24">
+      <PageHero
+        title="Produk dan Layanan BLUD"
+        subtitle="Produk dan layanan unggulan hasil Teaching Factory SMK PGRI 3 Malang dengan standar kualitas industri."
+        imageSrc="https://picsum.photos/seed/skariga-blud/1920/1080"
+      />
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

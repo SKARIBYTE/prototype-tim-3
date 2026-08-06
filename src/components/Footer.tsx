@@ -1,5 +1,6 @@
 import { MapPin, Phone, Mail } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const quickLinks = [
   { href: "/jurusan", label: "Jurusan" },
@@ -16,29 +17,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <svg
-                width="32"
-                height="32"
-                viewBox="0 0 36 36"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <rect width="36" height="36" rx="8" fill="#E17626" />
-                <path
-                  d="M8 18L13 11L18 18L23 11L28 18"
-                  stroke="white"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M10 24H26"
-                  stroke="white"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                />
-              </svg>
+              <Image
+                src="/assets/images/skariga.png"
+                alt="Logo SMK PGRI 3 Malang"
+                width={40}
+                height={40}
+                className="object-contain"
+              />
               <span className="text-lg font-bold text-white">
                 SMK PGRI 3 Malang
               </span>

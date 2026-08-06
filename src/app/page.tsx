@@ -6,6 +6,7 @@ import {
   departments,
   industryPartners,
 } from "@/data";
+import HomeHero from "@/components/HomeHero";
 
 export const metadata: Metadata = {
   title: "Beranda | SMK PGRI 3 Malang",
@@ -15,49 +16,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className="flex flex-col min-h-screen">
-      <section className="relative min-h-dvh flex items-center justify-center pt-32 pb-20 overflow-hidden text-white">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="https://picsum.photos/seed/hero-skariga/1920/1080"
-            alt="SMK PGRI 3 Malang"
-            fill
-            sizes="100vw"
-            className="object-cover object-center"
-            priority
-          />
-          <div className="absolute inset-0 bg-slate-900/70" />
-          <div className="absolute inset-0 bg-linear-to-t from-slate-900 via-slate-900/20 to-transparent" />
-        </div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center flex flex-col items-center">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-8">
-            <span className="flex h-2 w-2 rounded-full bg-primary mr-3 animate-pulse" />
-            <span className="text-sm font-medium text-white tracking-wide uppercase">Penerimaan Peserta Didik Baru Dibuka</span>
-          </div>
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-6 max-w-4xl drop-shadow-lg">
-            Wujudkan Masa Depan <br className="hidden sm:block" />
-            Bersama <span className="text-primary">SMK PGRI 3 Malang</span>
-          </h1>
-          <p className="text-xl sm:text-2xl text-slate-200 mb-10 max-w-2xl leading-relaxed drop-shadow-md">
-            Sekolah Menengah Kejuruan unggulan di Kota Malang dengan 16 kompetensi keahlian yang siap mencetak generasi profesional untuk masa depan.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center gap-4">
-            <Link
-              href="/program/jurusan"
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium rounded-xl bg-primary text-white hover:bg-primary/90 transition-all shadow-lg hover:shadow-primary/30 hover:-translate-y-1"
-            >
-              Jelajahi Program Kami
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-            <Link
-              href="/ppdb"
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium rounded-xl border-2 border-white text-white hover:bg-white hover:text-slate-900 transition-all hover:-translate-y-1"
-            >
-              Informasi PPDB
-            </Link>
-          </div>
-        </div>
-      </section>
+      <HomeHero />
 
       <section className="py-24 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
