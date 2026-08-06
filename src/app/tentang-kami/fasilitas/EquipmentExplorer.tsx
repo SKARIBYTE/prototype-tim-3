@@ -21,13 +21,15 @@ export default function EquipmentExplorer({ departments, equipment }: EquipmentE
 
   return (
     <div className="flex flex-col gap-8">
+      <h2 className="sr-only">Daftar Fasilitas & Peralatan</h2>
+
       <div className="flex flex-col gap-6 bg-white p-6 rounded-2xl shadow-sm border border-slate-200" role="search" aria-label="Filter peralatan">
         <div className="flex flex-col gap-3">
-          <span className="text-sm font-semibold text-slate-500 uppercase tracking-wider">Bidang Keahlian</span>
+          <span className="text-sm font-semibold text-slate-700 uppercase tracking-wider">Bidang Keahlian</span>
           <div className="flex flex-wrap gap-2">
             <Button
               onClick={() => setSelectedDepartment("all")}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${selectedDepartment === "all" ? "bg-primary text-white" : "bg-slate-100 text-slate-700 hover:bg-slate-200"}`}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${selectedDepartment === "all" ? "bg-primary text-white" : "bg-slate-100 text-slate-800 hover:bg-slate-200"}`}
               aria-pressed={selectedDepartment === "all"}
             >
               Semua
@@ -36,7 +38,7 @@ export default function EquipmentExplorer({ departments, equipment }: EquipmentE
               <Button
                 key={dept.id}
                 onClick={() => setSelectedDepartment(dept.id)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${selectedDepartment === dept.id ? "bg-primary text-white" : "bg-slate-100 text-slate-700 hover:bg-slate-200"}`}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${selectedDepartment === dept.id ? "bg-primary text-white" : "bg-slate-100 text-slate-800 hover:bg-slate-200"}`}
                 aria-pressed={selectedDepartment === dept.id}
               >
                 {dept.name}
@@ -59,6 +61,7 @@ export default function EquipmentExplorer({ departments, equipment }: EquipmentE
                 src={eq.image}
                 alt={eq.name}
                 fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
               />
             </div>
@@ -67,7 +70,7 @@ export default function EquipmentExplorer({ departments, equipment }: EquipmentE
               <div className="flex justify-between items-start mb-2 gap-4">
                 <h3 className="text-lg font-bold text-slate-900 leading-tight">{eq.name}</h3>
               </div>
-              <p className="text-sm text-slate-600 line-clamp-2 mb-4 grow">
+              <p className="text-sm text-slate-700 line-clamp-2 mb-4 grow">
                 {eq.description}
               </p>
             </div>

@@ -27,8 +27,9 @@ export default function PageHero({ title, subtitle, imageSrc, imageAlt = "" }: P
           sizes="100vw"
           className="object-cover object-center"
           priority
+          fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-900/40 to-slate-900/10" />
+        <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-900/60 to-slate-900/20" />
       </motion.div>
 
       <motion.div
@@ -46,7 +47,7 @@ export default function PageHero({ title, subtitle, imageSrc, imageAlt = "" }: P
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.05] mb-6 max-w-3xl">
             {title}
           </h1>
-          <p className="text-lg sm:text-xl text-slate-300 max-w-2xl leading-relaxed">
+          <p className="text-lg sm:text-xl text-slate-200 max-w-2xl leading-relaxed">
             {subtitle}
           </p>
         </motion.div>
