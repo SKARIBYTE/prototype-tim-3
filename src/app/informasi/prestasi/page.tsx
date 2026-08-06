@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import PageHero from "@/components/PageHero";
 import PrestasiClient from "./PrestasiClient";
 
 export const metadata: Metadata = {
@@ -8,17 +9,12 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <main className="min-h-dvh bg-white pb-24">
-      <section className="bg-slate-900 pt-32 pb-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">
-            Prestasi
-          </h1>
-          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-            Daftar pencapaian membanggakan siswa dan sekolah.
-          </p>
-        </div>
-      </section>
+    <main className="min-h-dvh bg-white text-slate-900">
+      <PageHero
+        title="Prestasi"
+        subtitle="Daftar pencapaian membanggakan siswa dan sekolah."
+        imageSrc="https://picsum.photos/seed/skariga-prestasi/1920/1080"
+      />
       <PrestasiClient />
     </main>
   );
