@@ -11,8 +11,8 @@ export default function FeaturedAchievement() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
-                    <div className="lg:col-span-5 relative z-10 group">
-            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
+          <div className="lg:col-span-5 relative z-10 group">
+            <div className="relative aspect-4/5 rounded-2xl overflow-hidden shadow-2xl">
               <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors duration-500 z-10" />
                                           <img 
                 src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1000&auto=format&fit=crop" 
