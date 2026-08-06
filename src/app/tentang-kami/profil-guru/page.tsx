@@ -46,7 +46,7 @@ export default function ProfilGuruPage() {
       <PageHero
         title="Profil Guru"
         subtitle="Daftar tenaga pendidik profesional dan staf akademik SMK PGRI 3 Malang."
-        imageSrc="https://picsum.photos/seed/skariga-guru/1920/1080"
+        imageSrc="https://picsum.photos/seed/skariga-profil-guru/1920/1080"
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 space-y-24">
