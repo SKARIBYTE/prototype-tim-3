@@ -26,7 +26,7 @@ const neuropol = localFont({
 
 export const metadata: Metadata = {
   icons: {
-    icon: '/skariga.png'
+    icon: '/favicon.png'
   },
   title: {
     default: "SMK PGRI 3 Malang",
