@@ -6,6 +6,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ChatBot from "@/components/ChatBot";
 import LenisProvider from "@/components/LenisProvider";
+import BackToTop from "@/components/BackToTop";
+import AccessibilityPanel from "@/components/AccessibilityPanel";
 import { cn } from "@/lib/utils";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
@@ -23,6 +25,9 @@ const neuropol = localFont({
 });
 
 export const metadata: Metadata = {
+  icons: {
+    icon: '/skariga.png'
+  },
   title: {
     default: "SMK PGRI 3 Malang",
     template: "%s | SMK PGRI 3 Malang",
@@ -69,6 +74,8 @@ export default function RootLayout({
           </main>
           <Footer />
           <ChatBot />
+          <BackToTop />
+          <AccessibilityPanel />
         </LenisProvider>
       </body>
     </html>
