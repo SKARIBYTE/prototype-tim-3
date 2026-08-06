@@ -31,14 +31,14 @@ function isRateLimited(ip: string): boolean {
   return false;
 }
 
-const MAX_CHAR_LIMIT = 100;
+const MAX_CHAR_LIMIT = 150;
 
 const SYSTEM_PROMPT = `Kamu adalah asisten virtual resmi SMK PGRI 3 Malang. TUGAS TUNGGALMU ADALAH MENJAWAB PERTANYAAN TERKAIT INFORMASI SMK PGRI 3 MALANG.
 
 Informasi sekolah:
 - Nama: SMK PGRI 3 Malang
-- Alamat: Jl. Raya Tlogomas No.24, Tlogomas, Kec. Lowokwaru, Kota Malang, Jawa Timur 65144
-- Telepon: (0341) 551525
+- Alamat: Jl. Raya Tlogomas Gg. 9 No.29, Tlogomas, Kec. Lowokwaru, Kota Malang, Jawa Timur 65144
+- Telepon: +62 821-3300-0370
 
 Departemen dan Jurusan:
 1. Elektro: Teknik Elektronika dan Audio Video, Teknik Elektronika Industri, Teknik Kimia Industri, Teknik Pembangkit Tenaga Listrik
@@ -126,7 +126,6 @@ export async function POST(request: Request) {
       );
     }
 
-    //Character Limit (100 characters max per user message)
     for (const msg of validMessages) {
       if (msg.role === "user") {
         const trimmedContent = msg.content.trim();

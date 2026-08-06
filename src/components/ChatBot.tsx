@@ -8,23 +8,43 @@ import { AnimatePresence, motion } from "framer-motion";
 
 import { Card, CardHeader, CardContent, CardFooter, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { useLanguage } from "./LanguageSwitcher";
+import { translations } from "@/i18n";
+
+function TypingMessage({ content, isNew }: { content: string; isNew: boolean }) {
+  const [displayed, setDisplayed] = useState(isNew ? "" : content);
+
+  useEffect(() => {
+    if (!isNew) return;
+    let i = 0;
+    const id = setInterval(() => {
+      i++;
+      setDisplayed(content.slice(0, i));
+      if (i >= content.length) clearInterval(id);
+    }, 20);
+    return () => clearInterval(id);
+  }, [content, isNew]);
+
+  return <>{displayed}</>;
+}
 
 export default function ChatBot() {
+  const lang = useLanguage();
+  const t = translations[lang];
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>(() => [
     {
       id: "welcome",
       role: "assistant",
-      content:
-        "Halo! Saya asisten virtual SMK PGRI 3 Malang. Silakan tanyakan tentang PPDB, jurusan, fasilitas, atau informasi sekolah lainnya.",
+      content: t.chatbot.welcome,
       timestamp: Date.now(),
     },
   ]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [latestAssistantId, setLatestAssistantId] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -49,6 +69,9 @@ export default function ChatBot() {
 
     setMessages((prev) => [...prev, userMessage]);
     setInput("");
+    if (inputRef.current) {
+      inputRef.current.style.height = "auto";
+    }
     setIsLoading(true);
 
     try {
@@ -69,10 +92,12 @@ export default function ChatBot() {
         throw new Error(data?.content || "Gagal menghubungi server");
       }
 
+      const newId = `assistant-${Date.now()}`;
+      setLatestAssistantId(newId);
       setMessages((prev) => [
         ...prev,
         {
-          id: `assistant-${Date.now()}`,
+          id: newId,
           role: "assistant",
           content: data.content,
           timestamp: Date.now(),
@@ -81,10 +106,12 @@ export default function ChatBot() {
     } catch (err: unknown) {
       const errorMessage =
         err instanceof Error ? err.message : "Maaf, terjadi kesalahan. Silakan coba lagi atau hubungi kami langsung di (0341) 551525.";
+      const errId = `error-${Date.now()}`;
+      setLatestAssistantId(errId);
       setMessages((prev) => [
         ...prev,
         {
-          id: `error-${Date.now()}`,
+          id: errId,
           role: "assistant",
           content: errorMessage,
           timestamp: Date.now(),
@@ -95,11 +122,18 @@ export default function ChatBot() {
     }
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       sendMessage();
     }
+  };
+
+  const handleTextareaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    if (e.target.value.length > 150) return;
+    setInput(e.target.value);
+    e.target.style.height = "auto";
+    e.target.style.height = e.target.scrollHeight + "px";
   };
 
   return (
@@ -108,7 +142,7 @@ export default function ChatBot() {
         type="button"
         onClick={() => setIsOpen(!isOpen)}
         className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full shadow-lg cursor-pointer active:scale-95 transition-all duration-200"
-        aria-label={isOpen ? "Tutup chat" : "Buka chat assistant"}
+        aria-label={isOpen ? t.chatbot.close_aria : t.chatbot.open_aria}
         size="icon"
       >
         <AnimatePresence mode="wait" initial={false}>
@@ -157,10 +191,10 @@ export default function ChatBot() {
                 </div>
                 <div>
                   <CardTitle className="text-sm font-semibold text-white">
-                    Asisten PGRI 3
+                    {t.chatbot.title}
                   </CardTitle>
                   <CardDescription className="text-xs text-white/80">
-                    {isLoading ? "Mengetik..." : "Online"}
+                    {isLoading ? t.chatbot.typing : t.chatbot.online}
                   </CardDescription>
                 </div>
               </CardHeader>
@@ -198,7 +232,11 @@ export default function ChatBot() {
                           : "bg-slate-100 text-slate-700"
                       )}
                     >
-                      {msg.content}
+                      {msg.role === "assistant" ? (
+                        <TypingMessage content={msg.content} isNew={msg.id === latestAssistantId} />
+                      ) : (
+                        msg.content
+                      )}
                     </div>
                   </div>
                 ))}
@@ -220,31 +258,33 @@ export default function ChatBot() {
                 <div ref={messagesEndRef} />
               </CardContent>
 
-              <CardFooter className="border-t border-slate-100 p-3 flex items-center gap-2 rounded-none bg-white">
-                <label htmlFor="chat-input" className="sr-only">
-                  Ketik pesan
-                </label>
-                <Input
-                  ref={inputRef}
-                  id="chat-input"
-                  type="text"
-                  value={input}
-                  onChange={(e) => setInput(e.target.value)}
-                  onKeyDown={handleKeyDown}
-                  placeholder="Ketik pesan..."
-                  maxLength={100}
-                  className="flex-1"
-                  disabled={isLoading}
-                />
-                <Button
-                  type="button"
-                  onClick={sendMessage}
-                  disabled={isLoading || !input.trim()}
-                  size="icon"
-                  aria-label="Kirim pesan"
-                >
-                  <Send className="h-4 w-4" aria-hidden="true" />
-                </Button>
+              <CardFooter className="border-t border-slate-100 p-3 flex flex-col gap-1.5 rounded-none bg-white">
+                <div className="flex items-center gap-2 w-full">
+                  <textarea
+                    ref={inputRef}
+                    aria-label="Ketik pesan"
+                    value={input}
+                    onChange={handleTextareaChange}
+                    onKeyDown={handleKeyDown}
+                    placeholder={t.chatbot.placeholder}
+                    rows={1}
+                    disabled={isLoading}
+                    style={{ maxHeight: "120px", overflowY: "auto", resize: "none" }}
+                    className="flex-1 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                  />
+                  <Button
+                    type="button"
+                    onClick={sendMessage}
+                    disabled={isLoading || !input.trim()}
+                    size="icon"
+                    aria-label="Kirim pesan"
+                  >
+                    <Send className="h-4 w-4" aria-hidden="true" />
+                  </Button>
+                </div>
+                <div className={`text-xs self-end tabular-nums transition-colors ${input.length >= 140 ? "text-red-500" : "text-slate-400"}`}>
+                  {input.length}/150
+                </div>
               </CardFooter>
             </Card>
           </motion.div>
