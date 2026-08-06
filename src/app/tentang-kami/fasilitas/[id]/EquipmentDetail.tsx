@@ -130,7 +130,7 @@ export default function EquipmentDetail({ equipment, departments, allEquipment }
           )}
         </div>
 
-        <div className="w-full max-h-[600px] aspect-video relative rounded-2xl overflow-hidden mb-8 flex items-center justify-center mx-auto" data-lenis-prevent>
+        <div className="w-full max-h-125 aspect-video relative rounded-2xl overflow-hidden mb-8 flex items-center justify-center mx-auto" data-lenis-prevent>
           {viewMode === "2D" ? (
             <Image
               src={equipment.image}

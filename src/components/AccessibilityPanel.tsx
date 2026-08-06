@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Accessibility, X } from "lucide-react";
+import { PersonStanding, X } from "lucide-react";
 import { useLanguage } from "./LanguageSwitcher";
 import { translations } from "@/i18n";
 
@@ -97,7 +97,7 @@ export default function AccessibilityPanel() {
         className="fixed bottom-6 left-6 z-50 w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center shadow-lg hover:bg-primary/90 transition-colors cursor-pointer"
         aria-label={t.accessibility.title}
       >
-        <Accessibility size={22} />
+        <PersonStanding size={22} />
       </button>
 
       <AnimatePresence>
