@@ -1,0 +1,145 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "program": "Programs",
+    "info": "Information",
+    "career": "Career",
+    "ppdb": "Enrollment"
+  },
+  "nav_items": {
+    "/tentang-kami/profil-sekolah": {
+      "title": "School Profile",
+      "desc": "History, vision, mission, and identity of SMK PGRI 3 Malang."
+    },
+    "/tentang-kami/profil-guru": {
+      "title": "Faculty & Staff",
+      "desc": "Professional and experienced teaching personnel."
+    },
+    "/tentang-kami/fasilitas": {
+      "title": "Facilities",
+      "desc": "Learning infrastructure and modern facilities."
+    },
+    "/tentang-kami/kerjasama-industri": {
+      "title": "Industry Partnerships",
+      "desc": "Industry partners for internships and recruitment."
+    },
+    "/tentang-kami/blud": {
+      "title": "BLUD",
+      "desc": "Regional Public Service Agency of SMK PGRI 3 Malang."
+    },
+    "/informasi/pengumuman": {
+      "title": "Announcements",
+      "desc": "Latest news updates and school policies."
+    },
+    "/informasi/berita": {
+      "title": "News",
+      "desc": "Event coverage and school highlights."
+    },
+    "/informasi/prestasi": {
+      "title": "Achievements",
+      "desc": "Competition awards and achievements."
+    },
+    "/informasi/kalender-aktivitas": {
+      "title": "Activity Calendar",
+      "desc": "Academic calendar and event schedule."
+    },
+    "/informasi/hubungi-kami": {
+      "title": "Contact Us",
+      "desc": "School contact info and location."
+    },
+    "/program/jurusan": {
+      "title": "Majors",
+      "desc": "Industry-aligned vocational majors."
+    },
+    "/program/ekstrakurikuler": {
+      "title": "Extracurriculars",
+      "desc": "Student talent and interest development."
+    },
+    "/program/pkl": {
+      "title": "Internships (PKL)",
+      "desc": "Field Work Practice programs."
+    },
+    "/program/tes-mengemudi": {
+      "title": "Driving Test",
+      "desc": "Facilities and driving license programs."
+    },
+    "/karir/bki": {
+      "title": "BKI (Career Center)",
+      "desc": "Job vacancy and recruitment info."
+    },
+    "/karir/alumni": {
+      "title": "Alumni",
+      "desc": "Graduates network and success stories."
+    }
+  },
+  "home": {
+    "hero_subtitle": "SMK PGRI 3 Malang",
+    "explore_programs": "Explore Our Programs",
+    "ppdb_info": "Enrollment Info",
+    "principal_greeting": "Principal's Welcome",
+    "welcome": "Welcome to SMK PGRI 3 Malang",
+    "principal_desc1": "Vocational education is the key to unlocking a bright future. At SMK PGRI 3 Malang, we equip students not only with cutting-edge technical skills, but also shape character, discipline, and a winning mindset.",
+    "principal_desc2": "Supported by industry-standard facilities and professional educators, we are committed to aligning our curriculum with Business & Industry (DUDI) needs, ensuring every graduate is ready to work, pursue higher education, or innovate as an entrepreneur.",
+    "principal_title": "Principal of SMK PGRI 3 Malang",
+    "years_exp": "10+ Years",
+    "years_exp_desc": "Producing Top Graduates",
+    "why_title": "Why SKARIGA?",
+    "why_subtitle": "Advantages of Studying Here",
+    "why_desc": "We blend high-quality vocational education with character building to produce graduates ready to compete globally.",
+    "card_akreditasi_title": "A Accreditation",
+    "card_akreditasi_desc": "Recognized with top accreditation scores, guaranteeing national-standard education quality and superior facilities.",
+    "card_kurikulum_title": "Industry Curriculum",
+    "card_kurikulum_desc": "Learning is directly aligned with partner industries, utilizing real-world equipment and standard operating procedures.",
+    "card_bki_title": "Exclusive Career Center",
+    "card_bki_desc": "Dedicated career placement for graduates through hundreds of national and multinational corporate partners.",
+    "card_ahli_title": "Expert Instructors",
+    "card_ahli_desc": "Guided directly by certified industry practitioners and experienced vocational teachers.",
+    "departments_title": "Featured Departments",
+    "departments_desc": "Choose from 4 departments across 15 specialized majors designed to answer modern industry challenges.",
+    "partners_subtitle": "Extensive Network",
+    "partners_title": "Hundreds of Industry Partners",
+    "partners_desc": "Partnering with national and multinational companies to guarantee an applied learning ecosystem and brilliant career opportunities.",
+    "view_all_majors": "View All Majors",
+    "competencies_count": "Majors"
+  },
+  "accessibility": {
+    "title": "Accessibility",
+    "font_size": "Text Size",
+    "high_contrast": "High Contrast",
+    "dyslexia_font": "Dyslexia Font",
+    "reduce_motion": "Reduce Motion",
+    "grayscale": "Grayscale",
+    "line_spacing": "Line Spacing",
+    "reset": "Reset"
+  },
+  "footer": {
+    "tagline": "Leading Vocational High School in Malang City preparing competent and work-ready graduates across industry sectors.",
+    "quick_links": "Quick Links",
+    "contact": "Contact",
+    "rights": "All rights reserved."
+  },
+  "chatbot": {
+    "title": "Skaribot",
+    "online": "Online",
+    "typing": "Typing...",
+    "welcome": "Hello! I am the virtual assistant for SMK PGRI 3 Malang. Feel free to ask about enrollment, majors, facilities, or school info.",
+    "placeholder": "Type a message...",
+    "close_aria": "Close chat",
+    "open_aria": "Open chat assistant"
+  },
+  "jurusan": {
+    "tab_profil": "Profile",
+    "tab_kurikulum": "Curriculum",
+    "tab_karir": "Career Prospects",
+    "tab_kebutuhan": "Industry Needs",
+    "tab_kegiatan": "Activities",
+    "profil_title": "Major Profile",
+    "competencies_title": "Core Competencies",
+    "curriculum_title": "Curriculum Structure",
+    "curriculum_desc": "The curriculum is aligned directly with industry standards (link & match).",
+    "career_title": "Career Prospects",
+    "industry_title": "Industry Demand",
+    "activities_title": "Learning Activities"
+  }
+}

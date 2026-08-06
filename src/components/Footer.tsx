@@ -1,16 +1,23 @@
+"use client";
+
 import { MapPin, Phone, Mail } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { useLanguage } from "./LanguageSwitcher";
+import { translations } from "@/i18n";
 
 const quickLinks = [
-  { href: "/jurusan", label: "Jurusan" },
+  { href: "/program/jurusan", label: "Jurusan" },
   { href: "/ppdb", label: "PPDB" },
-  { href: "/blud", label: "BLUD" },
-  { href: "/bkk", label: "BKK" },
-  { href: "/equipment", label: "Peralatan" },
+  { href: "/tentang-kami/blud", label: "BLUD" },
+  { href: "/karir/bki", label: "BKK" },
+  { href: "/tentang-kami/fasilitas", label: "Fasilitas" },
 ];
 
 export default function Footer() {
+  const lang = useLanguage();
+  const t = translations[lang];
+
   return (
     <footer className="bg-slate-900 text-slate-300" role="contentinfo">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
@@ -24,19 +31,18 @@ export default function Footer() {
                 height={40}
                 className="object-contain"
               />
-              <span className="text-lg font-bold text-white">
+              <span className="text-lg font-bold text-white font-neuropol">
                 SMK PGRI 3 Malang
               </span>
             </div>
             <p className="text-sm leading-relaxed text-slate-400 max-w-xs">
-              Sekolah Menengah Kejuruan unggulan di Kota Malang yang mencetak
-              lulusan kompeten dan siap kerja di berbagai bidang industri.
+              {t.footer.tagline}
             </p>
           </div>
 
           <nav aria-label="Tautan cepat">
             <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
-              Tautan Cepat
+              {t.footer.quick_links}
             </h3>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
@@ -54,7 +60,7 @@ export default function Footer() {
 
           <address className="not-italic">
             <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
-              Kontak
+              {t.footer.contact}
             </h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-2 text-sm text-slate-400">
@@ -91,8 +97,7 @@ export default function Footer() {
 
         <div className="mt-10 pt-6 border-t border-slate-800 text-center text-xs text-slate-500">
           <p>
-            &copy; {new Date().getFullYear()} SMK PGRI 3 Malang. Seluruh hak
-            dilindungi.
+            &copy; {new Date().getFullYear()} SMK PGRI 3 Malang. {t.footer.rights}
           </p>
         </div>
       </div>

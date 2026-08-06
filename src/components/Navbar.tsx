@@ -17,6 +17,17 @@ import {
 import { cn } from "@/lib/utils";
 import { navigationData, NavSection } from "@/data";
 import { Button } from "./ui/button";
+import LanguageSwitcher, { useLanguage } from "./LanguageSwitcher";
+import { translations } from "@/i18n";
+
+const navKeyMap: Record<string, keyof typeof translations.id.nav> = {
+  "Beranda": "home",
+  "Tentang Kami": "about",
+  "Program": "program",
+  "Informasi": "info",
+  "Karir": "career",
+  "PPDB": "ppdb",
+};
 
 const ListItem = forwardRef<
   React.ElementRef<"a">,
@@ -56,14 +67,15 @@ export default function Navbar({ backDark = false }: { backDark?: boolean } = {}
   const [menuOpen, setMenuOpen] = useState(false);
   const [openSection, setOpenSection] = useState<string | null>(null);
   const pathname = usePathname();
+  const lang = useLanguage();
+  const t = translations[lang];
   
-  // Determine if current path has backDark attribute in menu data
   const hasBackDarkInMenu = useMemo(() => {
     for (const section of navigationData) {
       if (section.href === pathname && section.backDark) return true;
       if (section.items) {
         const item = section.items.find(item => pathname === item.href || pathname?.startsWith(item.href));
-        if (item && item.backDark) return true;
+        if (item?.backDark) return true;
       }
     }
     return false;
@@ -115,6 +127,8 @@ export default function Navbar({ backDark = false }: { backDark?: boolean } = {}
         "fixed top-0 w-full z-50 transition-all duration-300 border-b",
         scrolled || menuOpen
           ? "bg-white/95 backdrop-blur-md shadow-sm border-slate-100 py-3"
+          : isHomePageBehavior
+          ? "bg-linear-to-b from-slate-950/60 via-slate-950/20 to-transparent border-transparent py-5 border-none"
           : "bg-transparent border-transparent py-5"
       )}
     >
@@ -145,11 +159,13 @@ export default function Navbar({ backDark = false }: { backDark?: boolean } = {}
             </span>
           </Link>
 
-          <div className="hidden md:flex items-center">
+          <div className="hidden md:flex items-center gap-4">
             <NavigationMenu>
               <NavigationMenuList>
                 {navigationData.map((section, idx) => {
                   const isActive = isSectionActive(section);
+                  const key = navKeyMap[section.title];
+                  const titleText = key && t.nav[key] ? t.nav[key] : section.title;
                   
                   if (section.href && !section.items) {
 
@@ -161,16 +177,16 @@ export default function Navbar({ backDark = false }: { backDark?: boolean } = {}
                             navigationMenuTriggerStyle(),
                             "cursor-pointer",
                             isActive
-                              ? "text-primary/90 bg-transparent hover:text-primary hover:bg-transparent focus:bg-transparent focus:text-primary"
+                              ? "text-primary bg-transparent hover:text-primary hover:bg-transparent focus:bg-transparent"
                               : cn(
                                   "bg-transparent hover:bg-transparent focus:bg-transparent",
                                   isDarkText
-                                    ? "text-slate-600 hover:text-primary focus:text-primary!"
-                                    : "text-white/90 hover:text-primary focus:text-primary!"
+                                    ? "text-slate-600 hover:text-primary focus:text-primary"
+                                    : "text-white/90 hover:text-primary focus:text-primary"
                                 )
                           )}
                         >
-                          {section.title}
+                          {titleText}
                         </NavigationMenuLink>
                       </NavigationMenuItem>
                     );
@@ -183,7 +199,7 @@ export default function Navbar({ backDark = false }: { backDark?: boolean } = {}
                           className={cn(
                             "cursor-pointer bg-transparent hover:bg-transparent data-[state=open]:bg-transparent focus:bg-transparent",
                             isActive
-                              ? "text-primary/90 hover:text-primary data-[state=open]:text-primary focus:text-primary!"
+                              ? "text-primary hover:text-primary data-[state=open]:text-primary focus:text-primary!"
                               : cn(
                                   isDarkText
                                     ? "text-slate-600 hover:text-primary data-[state=open]:text-primary focus:text-primary"
@@ -191,18 +207,23 @@ export default function Navbar({ backDark = false }: { backDark?: boolean } = {}
                                 )
                           )}
                         >
-                          {section.title}
+                          {titleText}
                         </NavigationMenuTrigger>
                         <NavigationMenuContent>
                           <ul className={cn(
                             "grid gap-3 p-4",
                             section.items.length > 3 ? "w-100 md:w-125 md:grid-cols-2 lg:w-150" : "w-75"
                           )}>
-                            {section.items.map((item, itemIdx) => (
-                              <ListItem key={itemIdx} href={item.href} title={item.title}>
-                                {item.description}
-                              </ListItem>
-                            ))}
+                            {section.items.map((item, itemIdx) => {
+                              const navItemTrans = (t.nav_items as Record<string, { title: string; desc: string }>)[item.href];
+                              const itemTitle = navItemTrans?.title || item.title;
+                              const itemDesc = navItemTrans?.desc || item.description;
+                              return (
+                                <ListItem key={itemIdx} href={item.href} title={itemTitle}>
+                                  {itemDesc}
+                                </ListItem>
+                              );
+                            })}
                           </ul>
                         </NavigationMenuContent>
                       </NavigationMenuItem>
@@ -213,6 +234,9 @@ export default function Navbar({ backDark = false }: { backDark?: boolean } = {}
                 })}
               </NavigationMenuList>
             </NavigationMenu>
+            <div className="ml-4 pl-4 border-l border-slate-200/50">
+              <LanguageSwitcher />
+            </div>
           </div>
 
           <button
@@ -245,6 +269,8 @@ export default function Navbar({ backDark = false }: { backDark?: boolean } = {}
             <div className="px-4 py-6 space-y-4">
               {navigationData.map((section, idx) => {
                 const isActive = isSectionActive(section);
+                const key = navKeyMap[section.title];
+                const titleText = key && t.nav[key] ? t.nav[key] : section.title;
                 
                 if (section.href && !section.items) {
                   return (
@@ -254,7 +280,7 @@ export default function Navbar({ backDark = false }: { backDark?: boolean } = {}
                       className={cn("block font-medium py-2 rounded-md px-3 bg-transparent cursor-pointer", isActive ? "text-primary/90 font-bold" : "text-slate-700 hover:text-primary")}
                       onClick={() => setMenuOpen(false)}
                     >
-                      {section.title}
+                      {titleText}
                     </Link>
                   );
                 }
@@ -267,7 +293,7 @@ export default function Navbar({ backDark = false }: { backDark?: boolean } = {}
                         className={cn("flex items-center justify-between w-full font-medium py-2 px-3 rounded-md hover:bg-transparent focus:bg-transparent", isActive ? "text-primary/90 font-bold" : "text-slate-700 hover:text-primary")}
                         onClick={() => toggleSection(section.title.toLowerCase())}
                       >
-                        {section.title}
+                        {titleText}
                         <ChevronDown
                           className={`h-4 w-4 transition-transform ${
                             openSection === section.title.toLowerCase() ? "rotate-180" : ""
@@ -278,9 +304,11 @@ export default function Navbar({ backDark = false }: { backDark?: boolean } = {}
                         <div className="pl-4 space-y-3 py-2 border-l-2 border-slate-100">
                           {section.items.map((item, itemIdx) => {
                             const isItemActive = pathname === item.href || (item.href !== "/" && pathname?.startsWith(item.href));
+                            const navItemTrans = (t.nav_items as Record<string, { title: string; desc: string }>)[item.href];
+                            const itemTitle = navItemTrans?.title || item.title;
                             return (
                               <Link key={itemIdx} href={item.href} className={cn("block text-sm cursor-pointer", isItemActive ? "text-primary font-bold" : "text-slate-600 hover:text-primary")} onClick={() => setMenuOpen(false)}>
-                                {item.title}
+                                {itemTitle}
                               </Link>
                             );
                           })}

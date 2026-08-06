@@ -1,0 +1,145 @@
+{
+  "nav": {
+    "home": "Beranda",
+    "about": "Tentang Kami",
+    "program": "Program",
+    "info": "Informasi",
+    "career": "Karir",
+    "ppdb": "PPDB"
+  },
+  "nav_items": {
+    "/tentang-kami/profil-sekolah": {
+      "title": "Profil Sekolah",
+      "desc": "Sejarah, visi misi, dan identitas SMK PGRI 3 Malang."
+    },
+    "/tentang-kami/profil-guru": {
+      "title": "Profil Guru",
+      "desc": "Tenaga pendidik profesional dan berpengalaman."
+    },
+    "/tentang-kami/fasilitas": {
+      "title": "Fasilitas",
+      "desc": "Sarana dan prasarana penunjang pembelajaran."
+    },
+    "/tentang-kami/kerjasama-industri": {
+      "title": "Kerjasama Industri",
+      "desc": "Mitra DUDI untuk prakerin dan rekrutmen."
+    },
+    "/tentang-kami/blud": {
+      "title": "BLUD",
+      "desc": "Badan Layanan Umum Daerah SMK PGRI 3 Malang."
+    },
+    "/informasi/pengumuman": {
+      "title": "Pengumuman",
+      "desc": "Informasi terbaru dan kebijakan sekolah."
+    },
+    "/informasi/berita": {
+      "title": "Berita",
+      "desc": "Liputan kegiatan dan kabar terkini."
+    },
+    "/informasi/prestasi": {
+      "title": "Prestasi",
+      "desc": "Capaian dan penghargaan kejuaraan."
+    },
+    "/informasi/kalender-aktivitas": {
+      "title": "Kalender Aktivitas",
+      "desc": "Jadwal kegiatan akademik dan acara."
+    },
+    "/informasi/hubungi-kami": {
+      "title": "Hubungi Kami",
+      "desc": "Kontak dan lokasi sekolah."
+    },
+    "/program/jurusan": {
+      "title": "Jurusan",
+      "desc": "Program keahlian unggulan berstandar industri."
+    },
+    "/program/ekstrakurikuler": {
+      "title": "Ekstrakurikuler",
+      "desc": "Pengembangan minat dan bakat siswa."
+    },
+    "/program/pkl": {
+      "title": "PKL",
+      "desc": "Praktik Kerja Lapangan."
+    },
+    "/program/tes-mengemudi": {
+      "title": "Tes Mengemudi",
+      "desc": "Fasilitas dan program lisensi berkendara."
+    },
+    "/karir/bki": {
+      "title": "BKI (Bidang Kerjasama Industri)",
+      "desc": "Informasi lowongan dan rekrutmen."
+    },
+    "/karir/alumni": {
+      "title": "Alumni",
+      "desc": "Jejaring dan kisah sukses lulusan."
+    }
+  },
+  "home": {
+    "hero_subtitle": "SMK PGRI 3 Malang",
+    "explore_programs": "Jelajahi Program Kami",
+    "ppdb_info": "Informasi PPDB",
+    "principal_greeting": "Sambutan Kepala Sekolah",
+    "welcome": "Selamat Datang di SMK PGRI 3 Malang",
+    "principal_desc1": "Pendidikan kejuruan adalah kunci untuk membuka pintu masa depan yang gemilang. Di SMK PGRI 3 Malang, kami tidak hanya membekali siswa dengan keterampilan teknis mutakhir, tetapi juga membentuk karakter, kedisiplinan, dan mentalitas juara.",
+    "principal_desc2": "Dengan dukungan fasilitas standar industri dan tenaga pendidik profesional, kami terus berkomitmen untuk menyelaraskan kurikulum dengan kebutuhan Dunia Usaha dan Dunia Industri (DUDI), memastikan setiap lulusan kami siap bekerja, melanjutkan studi, atau berwirausaha.",
+    "principal_title": "Kepala SMK PGRI 3 Malang",
+    "years_exp": "10+ Tahun",
+    "years_exp_desc": "Mencetak Lulusan Terbaik",
+    "why_title": "Kenapa SKARIGA?",
+    "why_subtitle": "Keunggulan Bersekolah di Sini",
+    "why_desc": "Kami memadukan pendidikan vokasi berkualitas tinggi dengan pengembangan karakter untuk menghasilkan lulusan yang siap bersaing secara global.",
+    "card_akreditasi_title": "Akreditasi A",
+    "card_akreditasi_desc": "Diakui dengan nilai akreditasi unggul, menjamin kualitas pendidikan berstandar nasional dan fasilitas yang memadai.",
+    "card_kurikulum_title": "Kurikulum Industri",
+    "card_kurikulum_desc": "Pembelajaran diselaraskan langsung dengan industri mitra, menggunakan peralatan dan prosedur standar dunia kerja.",
+    "card_bki_title": "Bursa Kerja Khusus",
+    "card_bki_desc": "Dukungan penyaluran kerja eksklusif bagi lulusan melalui ratusan mitra perusahaan berskala nasional dan multinasional.",
+    "card_ahli_title": "Tenaga Ahli",
+    "card_ahli_desc": "Dibimbing langsung oleh para praktisi dan guru produktif yang tersertifikasi secara profesional di bidangnya.",
+    "departments_title": "Departemen Unggulan",
+    "departments_desc": "Pilih dari 4 departemen dengan 15 kompetensi keahlian yang dirancang secara spesifik untuk menjawab tantangan industri modern.",
+    "partners_subtitle": "Koneksi Luas",
+    "partners_title": "Ratusan Mitra Industri",
+    "partners_desc": "Berjejaring dengan perusahaan nasional dan multinasional untuk menjamin ekosistem pembelajaran yang aplikatif dan peluang karir yang cemerlang.",
+    "view_all_majors": "Lihat Seluruh Jurusan",
+    "competencies_count": "Kompetensi Keahlian"
+  },
+  "accessibility": {
+    "title": "Aksesibilitas",
+    "font_size": "Ukuran Teks",
+    "high_contrast": "Kontras Tinggi",
+    "dyslexia_font": "Font Disleksia",
+    "reduce_motion": "Kurangi Animasi",
+    "grayscale": "Skala Abu-Abu",
+    "line_spacing": "Jarak Baris",
+    "reset": "Atur Ulang"
+  },
+  "footer": {
+    "tagline": "Sekolah Menengah Kejuruan unggulan di Kota Malang yang mencetak lulusan kompeten dan siap kerja di berbagai bidang industri.",
+    "quick_links": "Tautan Cepat",
+    "contact": "Kontak",
+    "rights": "Seluruh hak dilindungi."
+  },
+  "chatbot": {
+    "title": "Skaribot",
+    "online": "Online",
+    "typing": "Mengetik...",
+    "welcome": "Halo! Saya asisten virtual SMK PGRI 3 Malang. Silakan tanyakan tentang PPDB, jurusan, fasilitas, atau informasi sekolah lainnya.",
+    "placeholder": "Ketik pesan...",
+    "close_aria": "Tutup chat",
+    "open_aria": "Buka chat assistant"
+  },
+  "jurusan": {
+    "tab_profil": "Profil",
+    "tab_kurikulum": "Kurikulum",
+    "tab_karir": "Prospek Karir",
+    "tab_kebutuhan": "Kebutuhan",
+    "tab_kegiatan": "Kegiatan",
+    "profil_title": "Profil Jurusan",
+    "competencies_title": "Kompetensi Utama",
+    "curriculum_title": "Struktur Kurikulum",
+    "curriculum_desc": "Kurikulum di jurusan ini dirancang selaras dengan kebutuhan industri (link and match).",
+    "career_title": "Prospek Karir",
+    "industry_title": "Kebutuhan Industri",
+    "activities_title": "Kegiatan Pembelajaran"
+  }
+}
