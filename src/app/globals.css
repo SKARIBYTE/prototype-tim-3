@@ -142,3 +142,38 @@ body {
     @apply font-sans;
   }
 }
+
+.a11y-font-sm { font-size: 0.875rem !important; }
+.a11y-font-lg { font-size: 1.125rem !important; }
+
+.a11y-high-contrast {
+  filter: contrast(150%);
+}
+
+.a11y-dyslexia {
+  font-family: 'OpenDyslexic', 'Arial', sans-serif !important;
+  letter-spacing: 0.05em !important;
+  word-spacing: 0.1em !important;
+}
+
+.a11y-reduce-motion * {
+  animation-duration: 0.001ms !important;
+  transition-duration: 0.001ms !important;
+}
+
+.a11y-grayscale {
+  filter: grayscale(100%);
+}
+
+.a11y-line-spacing * {
+  line-height: 1.8 !important;
+}
+
+::selection {
+  background-color: #DB7328;
+  color: white;
+}
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #DB7328; border-radius: 9999px; }
