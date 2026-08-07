@@ -62,7 +62,7 @@ const ListItem = forwardRef<
 });
 ListItem.displayName = "ListItem";
 
-export default function Navbar({ backDark = false }: { backDark?: boolean } = {}) {
+export default function Navbar({ backDark = true }: { backDark?: boolean } = {}) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [openSection, setOpenSection] = useState<string | null>(null);

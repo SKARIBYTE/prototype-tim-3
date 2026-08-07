@@ -24,7 +24,6 @@ export const navigationData: NavSection[] = [
         title: "Profil Sekolah",
         href: "/tentang-kami/profil-sekolah",
         description: "Sejarah, visi misi, dan identitas SMK PGRI 3 Malang.",
-        backDark: true,
       },
       {
         title: "Profil Guru",
