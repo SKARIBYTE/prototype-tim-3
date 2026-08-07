@@ -10,7 +10,7 @@ const Masonry = dynamic(() => import('@/components/Masonry'), { ssr: false });
 const prestasiItems = [
   { 
     id: '1',  
-    img: '/assets/images/prestasi-1.svg',  
+    img: '/assets/images/prestasi-1.webp',  
     url: '#', 
     height: 600,
     title: 'Juara 1 Lomba Web Design Nasional',
@@ -20,7 +20,7 @@ const prestasiItems = [
   },
   { 
     id: '2',  
-    img: '/assets/images/prestasi-2.svg',  
+    img: '/assets/images/prestasi-2.webp',  
     url: '#', 
     height: 500,
     title: 'Medali Emas Kejuaraan Pencak Silat',
@@ -30,7 +30,7 @@ const prestasiItems = [
   },
   { 
     id: '3',  
-    img: '/assets/images/prestasi-3.svg',  
+    img: '/assets/images/prestasi-3.webp',  
     url: '#', 
     height: 700,
     title: 'Penghargaan Sekolah Adiwiyata',
@@ -40,7 +40,7 @@ const prestasiItems = [
   },
   { 
     id: '4',  
-    img: '/assets/images/prestasi-4.svg',  
+    img: '/assets/images/prestasi-4.webp',  
     url: '#', 
     height: 550,
     title: 'Juara 2 LKS Robotika Provinsi',
@@ -50,7 +50,7 @@ const prestasiItems = [
   },
   { 
     id: '5',  
-    img: '/assets/images/prestasi-5.svg',  
+    img: '/assets/images/prestasi-5.webp',  
     url: '#', 
     height: 650,
     title: 'Peringkat 1 Lomba Cipta Puisi',
@@ -60,7 +60,7 @@ const prestasiItems = [
   },
   { 
     id: '6',  
-    img: '/assets/images/prestasi-6.svg',  
+    img: '/assets/images/prestasi-6.webp',  
     url: '#', 
     height: 480,
     title: 'Juara 3 Turnamen Futsal Pelajar',
@@ -70,7 +70,7 @@ const prestasiItems = [
   },
   { 
     id: '7',  
-    img: '/assets/images/prestasi-7.svg',  
+    img: '/assets/images/prestasi-7.webp',  
     url: '#', 
     height: 620,
     title: 'Penghargaan Inovasi Teknologi',
@@ -80,7 +80,7 @@ const prestasiItems = [
   },
   { 
     id: '8',  
-    img: '/assets/images/prestasi-8.svg',  
+    img: '/assets/images/prestasi-8.webp',  
     url: '#', 
     height: 540,
     title: 'Medali Perak Olimpiade Matematika',
@@ -90,7 +90,7 @@ const prestasiItems = [
   },
   { 
     id: '9',  
-    img: '/assets/images/prestasi-9.svg',  
+    img: '/assets/images/prestasi-9.webp',  
     url: '#', 
     height: 580,
     title: 'Juara Umum Lomba Keterampilan Pramuka',
@@ -100,7 +100,7 @@ const prestasiItems = [
   },
   { 
     id: '10', 
-    img: '/assets/images/prestasi-10.svg', 
+    img: '/assets/images/prestasi-10.webp', 
     url: '#', 
     height: 660,
     title: 'Terbaik Lomba Film Pendek Edukasi',
@@ -110,8 +110,8 @@ const prestasiItems = [
   },
   { 
     id: '11', 
-    img: '/assets/images/prestasi-11.svg', 
-    url: '#', 
+    img: '/assets/images/prestasi-11.webp', 
+      url: '#', 
     height: 510,
     title: 'Juara 1 Lomba Debat Bahasa Inggris',
     excerpt: 'Tim debat bahasa Inggris mengalahkan puluhan sekolah di kompetisi tahunan.',

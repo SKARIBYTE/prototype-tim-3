@@ -24,7 +24,8 @@ export default function PageHero({ title, subtitle, imageSrc, imageAlt = "" }: P
           src={imageSrc}
           alt={imageAlt || title}
           fill
-          sizes="100vw"
+          sizes="(max-width: 1380px) 100vw, 1380px"
+          quality={75}
           className="object-cover object-center"
           priority
           fetchPriority="high"
