@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "lhci": "lhci autorun --config=./lighthouserc.cjs"
+    "lhci": "lhci autorun --config=./lighthouserc.cjs",
+    "test:perf": "bun run build && bun run start"
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",

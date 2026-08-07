@@ -3,6 +3,7 @@
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 interface Item {
   id: string;
@@ -28,9 +29,13 @@ export default function MobilePrestasiReel({ items }: MobilePrestasiReelProps) {
           className="w-full h-full snap-start relative flex flex-col justify-end overflow-hidden group cursor-pointer"
           onClick={() => window.open(item.url, '_blank', 'noopener')}
         >
-                    <div 
-            className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-            style={{ backgroundImage: `url(${item.img})` }}
+          <Image
+            src={item.img}
+            alt={item.title || ''}
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+            sizes="(max-width: 768px) 100vw, 50vw"
+            priority={index === 0}
           />
           
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent opacity-90" />
