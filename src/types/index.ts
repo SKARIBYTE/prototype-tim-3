@@ -101,3 +101,18 @@ export interface ChatMessage {
   content: string;
   timestamp: number;
 }
+
+export interface Extracurricular {
+  id: string;
+  name: string;
+  categoryId: string;
+  description: string;
+  icon: string;
+}
+
+export interface ExtracurricularCategory {
+  id: string;
+  name: string;
+  description: string;
+  color: string;
+}
