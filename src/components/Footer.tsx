@@ -165,7 +165,7 @@ export default function Footer() {
                   aria-hidden="true"
                 />
                 <a
-                  href="mailto:mail.smkpgri3malang@gmail.com"
+                  href="https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&to=mail.smkpgri3malang@gmail.com"
                   className="hover:text-primary transition-colors"
                 >
                   mail.smkpgri3malang@gmail.com
