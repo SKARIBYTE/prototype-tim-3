@@ -69,6 +69,11 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://picsum.photos" />
         <link rel="dns-prefetch" href="https://picsum.photos" />
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        />
       </head>
       <body className="min-h-dvh flex flex-col bg-white text-slate-900">
         <LenisProvider>

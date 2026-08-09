@@ -31,7 +31,7 @@ export default function HomeHero() {
             loop
             playsInline
             className="absolute inset-0 w-full h-full object-cover object-center"
-            poster="https://picsum.photos/seed/hero-skariga/1920/1080"
+            poster="https://www.solidbackgrounds.com/images/1920x1080/1920x1080-black-solid-color-background.jpg"
           >
             <source src="/assets/videos/hero.mp4" type="video/mp4" />
           </video>

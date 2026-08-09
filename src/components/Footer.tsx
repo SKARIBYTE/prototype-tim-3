@@ -1,18 +1,67 @@
 "use client";
 
-import { MapPin, Phone, Mail } from "lucide-react";
+import { MapPin, Phone, Mail, MessageCircle } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { useLanguage } from "./LanguageSwitcher";
 import { translations } from "@/i18n";
+import { navigationData } from "@/data";
 
-const quickLinks = [
-  { href: "/program/jurusan", label: "Jurusan" },
-  { href: "/ppdb", label: "PPDB" },
-  { href: "/tentang-kami/blud", label: "BLUD" },
-  { href: "/karir/bki", label: "BKK" },
-  { href: "/tentang-kami/fasilitas", label: "Fasilitas" },
+const navKeyMap: Record<string, keyof typeof translations.id.nav> = {
+  "Beranda": "home",
+  "PPDB": "ppdb",
+};
+
+const quickLinks = navigationData.flatMap((section) => {
+  if (section.href && !section.items) {
+    return [
+      {
+        href: section.href,
+        title: section.title,
+        navKey: navKeyMap[section.title],
+      },
+    ];
+  }
+  return (section.items ?? []).map((item) => ({
+    href: item.href,
+    title: item.title,
+  }));
+});
+
+const socialLinks = [
+  {
+    href: "https://www.youtube.com/channel/UCGGVdb_Wh1lvn8HIoMKdiLA",
+    icon: "fa-brands fa-youtube",
+    label: "YouTube",
+  },
+  {
+    href: "https://www.instagram.com/skariga_official",
+    icon: "fa-brands fa-instagram",
+    label: "Instagram",
+  },
+  {
+    href: "https://www.facebook.com/SKARIGA/?locale=id_ID",
+    icon: "fa-brands fa-facebook-f",
+    label: "Facebook",
+  },
+  {
+    href: "https://www.tiktok.com/@skariga",
+    icon: "fa-brands fa-tiktok",
+    label: "TikTok",
+  },
 ];
+
+function quickLinkLabel(
+  t: (typeof translations)["id"],
+  link: { href: string; title: string; navKey?: keyof typeof translations.id.nav }
+) {
+  if (link.navKey) {
+    const navLabel = t.nav[link.navKey];
+    if (navLabel) return navLabel;
+  }
+  const navItem = t.nav_items[link.href as keyof typeof t.nav_items];
+  return navItem?.title || link.title;
+}
 
 export default function Footer() {
   const lang = useLanguage();
@@ -38,20 +87,34 @@ export default function Footer() {
             <p className="text-sm leading-relaxed text-slate-400 max-w-xs">
               {t.footer.tagline}
             </p>
+            <div className="flex items-center gap-3 mt-6">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-slate-300 transition-colors hover:bg-primary hover:text-white"
+                  aria-label={social.label}
+                >
+                  <i className={`${social.icon} text-sm`} aria-hidden="true" />
+                </a>
+              ))}
+            </div>
           </div>
 
-          <nav aria-label="Tautan cepat">
+          <nav aria-label={t.footer.quick_links}>
             <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
               {t.footer.quick_links}
             </h3>
-            <ul className="space-y-2">
+            <ul className="grid grid-cols-2 gap-x-6 gap-y-2">
               {quickLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
                     className="text-sm text-slate-400 hover:text-primary transition-colors"
                   >
-                    {link.label}
+                    {quickLinkLabel(t, link)}
                   </Link>
                 </li>
               ))}
@@ -69,7 +132,7 @@ export default function Footer() {
                   aria-hidden="true"
                 />
                 <span>
-                  Jl. Raya Tlogomas No.24, Tlogomas, Kec. Lowokwaru, Kota
+                  Jl. Raya Tlogomas Gg. 9 No.29, Tlogomas, Kec. Lowokwaru, Kota
                   Malang, Jawa Timur 65144
                 </span>
               </li>
@@ -78,8 +141,22 @@ export default function Footer() {
                   className="h-4 w-4 shrink-0 text-primary"
                   aria-hidden="true"
                 />
-                <a href="tel:+62341551525" className="hover:text-primary transition-colors">
-                  (0341) 551525
+                <a href="tel:+62341554383" className="hover:text-primary transition-colors">
+                  (0341) 554383
+                </a>
+              </li>
+              <li className="flex items-center gap-2 text-sm text-slate-400">
+                <MessageCircle
+                  className="h-4 w-4 shrink-0 text-primary"
+                  aria-hidden="true"
+                />
+                <a
+                  href="https://wa.me/6282133000370"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition-colors"
+                >
+                  +62 821-3300-0370
                 </a>
               </li>
               <li className="flex items-center gap-2 text-sm text-slate-400">
@@ -87,17 +164,31 @@ export default function Footer() {
                   className="h-4 w-4 shrink-0 text-primary"
                   aria-hidden="true"
                 />
-                <a href="mailto:info@smkpgri3malang.sch.id" className="hover:text-primary transition-colors">
-                  info@smkpgri3malang.sch.id
+                <a
+                  href="mailto:mail.smkpgri3malang@gmail.com"
+                  className="hover:text-primary transition-colors"
+                >
+                  mail.smkpgri3malang@gmail.com
                 </a>
               </li>
             </ul>
+            <div className="mt-6 overflow-hidden rounded-lg border border-slate-800">
+              <iframe
+                title="SMK PGRI 3 MALANG"
+                src="https://maps.google.com/maps?width=100%&amp;height=220&amp;hl=en&amp;q=smk%20pgri%203%20malang&amp;t=p&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                className="h-44 w-full"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
           </address>
         </div>
 
         <div className="mt-10 pt-6 border-t border-slate-800 text-center text-xs text-slate-500">
           <p>
-            &copy; {new Date().getFullYear()} SMK PGRI 3 Malang. {t.footer.rights}
+            &copy; {new Date().getFullYear()} SMK PGRI 3 Malang. All rights reserved.
           </p>
         </div>
       </div>
