@@ -49,13 +49,23 @@ export default function Home() {
     <main className="flex flex-col min-h-screen">
       <HomeHero />
 
-      <Section className="py-24 bg-white relative overflow-hidden">
+      <Section className="py-16 lg:py-24 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <FadeUp>
               <div className="relative">
-                <div className="absolute -inset-4 bg-primary/5 rounded-3xl transform -rotate-3" />
-                <div className="relative aspect-4/5 rounded-2xl overflow-hidden border border-slate-100 shadow-xl">
+                <div className="absolute -inset-4 rounded-3xl transform -rotate-3 overflow-hidden blur-sm opacity-80">
+                  <Image
+                    src="/assets/images/kepsek.webp"
+                    alt="Kepala Sekolah SMK PGRI 3 Malang"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover"
+                    aria-hidden="true"
+                  />
+                  <div className="absolute inset-0" />
+                </div>
+                <div className="relative aspect-4/5 rounded-2xl overflow-hidden border border-slate-100 shadow-[0_8px_40px_-4px_rgba(0,0,0,0.10),0_2px_12px_-2px_rgba(0,0,0,0.08)]">
                   <Image
                     src="/assets/images/kepsek.webp"
                     alt="Kepala Sekolah SMK PGRI 3 Malang"
@@ -77,10 +87,10 @@ export default function Home() {
                 </div>
               </div>
             </FadeUp>
-            <FadeUp delay={0.1}>
+            <FadeUp delay={0.1} className="lg:mt-8">
               <div>
                 <h2 className="text-sm font-bold tracking-widest text-primary uppercase mb-3">{t.home.principal_greeting}</h2>
-                <h3 className="w-96 text-3xl sm:text-4xl font-bold text-slate-900 mb-6 leading-tight">
+                <h3 className="w-full lg:w-96 text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 mb-6 leading-tight">
                   {t.home.welcome}
                 </h3>
                 <div className="prose prose-lg text-slate-600 prose-p:leading-relaxed">
@@ -88,7 +98,7 @@ export default function Home() {
                   <p>{t.home.principal_desc2}</p>
                 </div>
                 <div className="mt-8 pt-8 border-t border-slate-100">
-                  <p className="font-bold text-slate-900 text-xl">M. Lukman Hakim, S.T.</p>
+                  <p className="font-bold text-slate-900 text-xl">Dr. M. Lukman Hakim, S.T., M.M.</p>
                   <p className="text-slate-500 font-medium">{t.home.principal_title}</p>
                 </div>
               </div>
@@ -97,11 +107,11 @@ export default function Home() {
         </div>
       </Section>
 
-      <Section className="py-24 bg-slate-50">
+      <Section className="py-16 lg:py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeUp className="text-center mb-16">
             <h2 className="text-sm font-bold tracking-widest text-primary uppercase mb-3">{t.home.why_title}</h2>
-            <h3 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">{t.home.why_subtitle}</h3>
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 mb-4">{t.home.why_subtitle}</h3>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
               {t.home.why_desc}
             </p>
@@ -128,18 +138,18 @@ export default function Home() {
         </div>
       </Section>
 
-      <Section className="py-24 bg-white relative">
+      <Section className="py-16 lg:py-24 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeUp className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
             <div className="max-w-2xl">
               <h2 className="text-sm font-bold tracking-widest text-primary uppercase mb-3">{t.nav.program}</h2>
-              <h3 className="text-3xl sm:text-4xl font-bold text-slate-900">{t.home.departments_title}</h3>
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900">{t.home.departments_title}</h3>
               <p className="mt-4 text-lg text-slate-600">
                 {t.home.departments_desc}
               </p>
             </div>
-            <Link href="/program/jurusan" className="inline-flex items-center text-primary font-bold hover:text-primary/80 transition-colors">
-              {t.home.view_all_majors} <ArrowRight className="ml-2 h-5 w-5" />
+            <Link href="/program/jurusan" className="group inline-flex items-center text-primary font-bold hover:text-primary/80 transition-colors">
+              {t.home.view_all_majors} <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </FadeUp>
 
@@ -149,11 +159,11 @@ export default function Home() {
         </div>
       </Section>
 
-      <Section className="py-20 bg-slate-900 overflow-hidden border-t border-slate-800">
+      <Section className="py-12 lg:py-20 bg-slate-900 overflow-hidden border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 text-center">
           <FadeUp>
             <h2 className="text-sm font-bold tracking-widest text-primary uppercase mb-3">{t.home.partners_subtitle}</h2>
-            <h3 className="text-3xl font-bold text-white mb-4">{t.home.partners_title}</h3>
+            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">{t.home.partners_title}</h3>
             <p className="text-slate-400 max-w-2xl mx-auto">
               {t.home.partners_desc}
             </p>
@@ -178,15 +188,15 @@ export default function Home() {
 
           <div className="flex shrink-0 animate-marquee whitespace-nowrap items-center">
             {industryPartners.map((partner) => (
-              <div key={partner.id} className="mx-8 lg:mx-12 flex items-center justify-center grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300 transform hover:scale-110">
-                <Image src={partner.logo} alt={partner.name} width={180} height={70} className="h-12 lg:h-16 w-auto object-contain" />
+              <div key={partner.id} className="mx-8 lg:mx-12 flex items-center justify-center grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300 transform hover:scale-110 w-32 h-16 lg:w-48 lg:h-20">
+                <Image src={partner.logo} alt={partner.name} width={180} height={70} className="w-full h-full object-contain" />
               </div>
             ))}
           </div>
           <div className="flex shrink-0 animate-marquee whitespace-nowrap items-center">
             {industryPartners.map((partner) => (
-              <div key={partner.id + "-duplicate"} className="mx-8 lg:mx-12 flex items-center justify-center grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300 transform hover:scale-110">
-                <Image src={partner.logo} alt={partner.name} width={180} height={70} className="h-12 lg:h-16 w-auto object-contain" />
+              <div key={partner.id + "-duplicate"} className="mx-8 lg:mx-12 flex items-center justify-center grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300 transform hover:scale-110 w-32 h-16 lg:w-48 lg:h-20">
+                <Image src={partner.logo} alt={partner.name} width={180} height={70} className="w-full h-full object-contain" />
               </div>
             ))}
           </div>

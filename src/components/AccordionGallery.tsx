@@ -20,7 +20,7 @@ export default function AccordionGallery({ departments }: AccordionGalleryProps)
   return (
     <div
       onMouseLeave={() => setHoveredIndex(null)}
-      className="flex flex-col md:flex-row gap-4 h-[550px] md:h-[480px] w-full"
+      className="flex flex-col md:flex-row gap-4 h-137.5 md:h-120 w-full"
     >
       {departments.map((dept, index) => {
         const isHovered = hoveredIndex === index;
@@ -29,7 +29,7 @@ export default function AccordionGallery({ departments }: AccordionGalleryProps)
           <motion.div
             key={dept.id}
             onMouseEnter={() => setHoveredIndex(index)}
-            className={`relative rounded-3xl overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${
+            className={`relative rounded-3xl overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] ${
               isHovered
                 ? "flex-[2.8] shadow-2xl"
                 : "flex-1 shadow-md opacity-90 hover:opacity-100"
@@ -50,17 +50,17 @@ export default function AccordionGallery({ departments }: AccordionGalleryProps)
               />
 
               <div
-                className={`absolute inset-0 transition-opacity duration-500 ${
+                className={`absolute inset-0 transition-opacity duration-700 ${
                   isHovered
-                    ? "bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent opacity-90"
-                    : "bg-gradient-to-t from-slate-950/90 via-slate-950/50 to-slate-950/20 opacity-75"
+                    ? "bg-linear-to-t from-slate-950 via-slate-950/40 to-transparent opacity-90"
+                    : "bg-linear-to-t from-slate-950/90 via-slate-950/50 to-slate-950/20 opacity-75"
                 }`}
               />
 
               <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end z-10">
                 <div className="space-y-2">
                   <h4
-                    className={`font-bold text-white leading-tight transition-all duration-300 ${
+                    className={`font-bold text-white leading-tight transition-all duration-500 ${
                       isHovered ? "text-2xl md:text-3xl" : "text-xl md:text-2xl"
                     }`}
                   >
@@ -68,8 +68,8 @@ export default function AccordionGallery({ departments }: AccordionGalleryProps)
                   </h4>
 
                   <div
-                    className={`overflow-hidden transition-all duration-500 ${
-                      isHovered ? "max-h-32 opacity-100 mt-2" : "max-h-0 opacity-0"
+                    className={`overflow-hidden transition-all duration-700 ${
+                      isHovered ? "max-h-32 opacity-100 mt-2 delay-100" : "max-h-0 opacity-0"
                     }`}
                   >
                     <p className="text-white/80 text-sm md:text-base leading-relaxed line-clamp-2 mb-3">

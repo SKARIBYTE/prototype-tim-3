@@ -36,7 +36,7 @@ export default function HomeHero() {
             <source src="/assets/videos/hero.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-slate-900/55" />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/10 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-900/10 to-transparent" />
         </motion.div>
 
         <motion.div
@@ -56,7 +56,7 @@ export default function HomeHero() {
             initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="font-neuropol text-[clamp(4rem,15vw,8rem)] font-bold leading-none tracking-widest drop-shadow-2xl mb-8"
+            className="font-neuropol text-[clamp(3.5rem,12vw,8rem)] font-bold leading-none tracking-widest drop-shadow-2xl mb-8"
           >
             SKARIGA
           </motion.h1>
@@ -69,10 +69,10 @@ export default function HomeHero() {
           >
             <Link
               href="/program/jurusan"
-              className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-xl bg-primary text-white active:bg-primary/90 transition-all shadow-lg hover:shadow-primary/40 hover:-translate-y-0.5"
+              className="group inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-xl bg-primary text-white border-2 border-primary hover:bg-transparent hover:text-primary-light hover:-translate-y-0.5 transition-all"
             >
               {t.home.explore_programs}
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
               href="/ppdb"
