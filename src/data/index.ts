@@ -9,3 +9,4 @@ export * from "./ppdbTracks";
 export * from "./equipmentData";
 export * from "./navigation";
 export * from "./ekstrakurikuler";
+export * from './teachers';

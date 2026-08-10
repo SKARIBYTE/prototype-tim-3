@@ -22,6 +22,7 @@ interface TeacherMember {
 interface TeacherCarouselProps {
   members: TeacherMember[];
   className?: string;
+  dotColor?: string;
 }
 
 const roleLabel = (role: string) => {
@@ -34,7 +35,11 @@ const roleType = (role: string) => {
   return null;
 };
 
-export function TeacherCarousel({ members, className }: TeacherCarouselProps) {
+export function TeacherCarousel({
+  members,
+  className,
+  dotColor = "bg-primary",
+}: TeacherCarouselProps) {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
 
@@ -42,7 +47,9 @@ export function TeacherCarousel({ members, className }: TeacherCarouselProps) {
     if (!api) return;
     const onSelect = () => setCurrent(api.selectedScrollSnap());
     api.on("select", onSelect);
-    return () => { api.off("select", onSelect); };
+    return () => {
+      api.off("select", onSelect);
+    };
   }, [api]);
 
   return (
@@ -52,10 +59,14 @@ export function TeacherCarousel({ members, className }: TeacherCarouselProps) {
         className="w-full"
         opts={{ loop: true, slidesToScroll: 1 }}
         plugins={[
-          Autoplay({ delay: 3000, stopOnInteraction: true, stopOnMouseEnter: true }),
+          Autoplay({
+            delay: 3000,
+            stopOnInteraction: true,
+            stopOnMouseEnter: true,
+          }),
         ]}
       >
-        <CarouselContent className="flex h-[460px] w-full">
+        <CarouselContent className="flex h-115 w-full">
           {members.map((member, index) => (
             <CarouselItem
               key={index}
@@ -78,18 +89,18 @@ export function TeacherCarousel({ members, className }: TeacherCarouselProps) {
                     alt={member.name}
                     className="h-full w-full scale-105 object-cover object-center"
                   />
-                  <motion.div 
+                  <motion.div
                     initial={false}
                     animate={{ bottom: current === index ? "0%" : "12%" }}
                     transition={{ duration: 0.4, ease: "easeInOut" }}
-                    className="absolute top-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" 
+                    className="absolute top-0 left-0 right-0 bg-linear-to-t from-black/80 via-black/20 to-transparent"
                   />
 
-                  <motion.div 
+                  <motion.div
                     initial={false}
-                    animate={{ 
+                    animate={{
                       bottom: current === index ? "0%" : "12%",
-                      opacity: current === index ? 1 : 0.6
+                      opacity: current === index ? 1 : 0.6,
                     }}
                     transition={{ duration: 0.4, ease: "easeInOut" }}
                     className="absolute left-0 right-0 p-4 text-white"
@@ -106,8 +117,6 @@ export function TeacherCarousel({ members, className }: TeacherCarouselProps) {
                   </motion.div>
                 </div>
               </motion.div>
-
-
             </CarouselItem>
           ))}
         </CarouselContent>
@@ -129,7 +138,7 @@ export function TeacherCarousel({ members, className }: TeacherCarouselProps) {
                 aria-label={`Slide ${index + 1}`}
                 className={cn(
                   "h-1.5 rounded-full transition-all duration-300",
-                  current === index ? "w-5 bg-primary" : "w-1.5 bg-slate-300"
+                  current === index ? `w-5 ${dotColor}` : "w-1.5 bg-slate-300",
                 )}
               />
             ))}
