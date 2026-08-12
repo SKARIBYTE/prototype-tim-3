@@ -29,21 +29,20 @@ export const metadata: Metadata = {
     icon: '/favicon.png'
   },
   title: {
-    default: "SMK PGRI 3 Malang",
-    template: "%s | SMK PGRI 3 Malang",
+    default: "SMK PGRI 3 Malang - Success by Discipline",
+    template: "%s | SMK PGRI 3 Malang - Success by Discipline",
   },
   description:
-    "Sekolah Menengah Kejuruan unggulan di Kota Malang dengan 16 kompetensi keahlian di bidang Elektro, Otomotif, Pemesinan, dan TIK. Mencetak lulusan kompeten dan siap kerja.",
+    "Sekolah untuk Kerja, Wirausaha, Kuliah Apalagi",
   keywords: [
     "SMK PGRI 3 Malang",
     "SMK Malang",
     "PPDB SMK Malang",
     "sekolah kejuruan",
-    "TKJ",
-    "RPL",
     "otomotif",
     "pemesinan",
     "elektro",
+    "smk terbaik di malang"
   ],
   openGraph: {
     type: "website",
@@ -51,7 +50,7 @@ export const metadata: Metadata = {
     siteName: "SMK PGRI 3 Malang",
     title: "SMK PGRI 3 Malang",
     description:
-      "Sekolah Menengah Kejuruan unggulan di Kota Malang dengan 16 kompetensi keahlian.",
+      "Sekolah untuk Kerja, Wirausaha, Kuliah Apalagi",
   },
   robots: {
     index: true,
