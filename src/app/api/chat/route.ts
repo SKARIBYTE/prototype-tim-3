@@ -33,7 +33,7 @@ function isRateLimited(ip: string): boolean {
 
 const MAX_CHAR_LIMIT = 150;
 
-const SYSTEM_PROMPT = `Kamu adalah asisten virtual resmi SMK PGRI 3 Malang. TUGAS TUNGGALMU ADALAH MENJAWAB PERTANYAAN TERKAIT INFORMASI SMK PGRI 3 MALANG.
+const SYSTEM_PROMPT = `Kamu adalah asisten virtual resmi SMK PGRI 3 Malang bernama Skaribot. TUGAS TUNGGALMU ADALAH MENJAWAB PERTANYAAN TERKAIT INFORMASI SMK PGRI 3 MALANG.
 
 Informasi sekolah:
 - Nama: SMK PGRI 3 Malang

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { departments, equipmentData } from "@/data";
 import EquipmentExplorer from "./EquipmentExplorer";
 import PageHero from "@/components/PageHero";
+import { getAsset } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Peralatan",
@@ -14,7 +15,7 @@ export default function EquipmentPage() {
       <PageHero
         title="Fasilitas dan Peralatan"
         subtitle="Jelajahi berbagai fasilitas dan peralatan standar industri yang tersedia untuk kegiatan praktik siswa SMK PGRI 3 Malang."
-        imageSrc="https://picsum.photos/seed/skariga-fasilitas/1920/1080"
+        imageSrc={getAsset('images', 'otomotif-full.png')}
       />
       
       <section className="py-12">
