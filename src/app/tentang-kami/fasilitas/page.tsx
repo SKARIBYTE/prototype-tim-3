@@ -15,7 +15,7 @@ export default function EquipmentPage() {
       <PageHero
         title="Fasilitas dan Peralatan"
         subtitle="Jelajahi berbagai fasilitas dan peralatan standar industri yang tersedia untuk kegiatan praktik siswa SMK PGRI 3 Malang."
-        imageSrc={getAsset('images', 'otomotif-full.png')}
+        imageSrc={getAsset('images', 'otomotif-full.webp')}
       />
       
       <section className="py-12">

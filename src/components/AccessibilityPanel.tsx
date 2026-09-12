@@ -93,6 +93,7 @@ export default function AccessibilityPanel() {
   return (
     <>
       <button
+        suppressHydrationWarning
         onClick={() => setOpen((o) => !o)}
         className="fixed bottom-6 left-6 z-50 w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center shadow-lg hover:bg-primary/90 transition-colors cursor-pointer"
         aria-label={t.accessibility.title}

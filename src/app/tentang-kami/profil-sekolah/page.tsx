@@ -13,7 +13,7 @@ export default function Page() {
       <PageHero
         title="Profil Sekolah"
         subtitle="Informasi lengkap mengenai visi, misi, dan sejarah SMK PGRI 3 Malang."
-        imageSrc="/assets/images/depansekul.png"
+        imageSrc="/assets/images/depansekul.webp"
       />
       <ProfileContent />
     </main>

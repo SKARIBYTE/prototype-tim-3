@@ -102,6 +102,7 @@ export interface ChatMessage {
   timestamp: number;
 }
 
+
 export interface Extracurricular {
   id: string;
   name: string;

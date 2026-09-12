@@ -30,8 +30,7 @@ export default function HomeHero() {
             muted
             loop
             playsInline
-            className="absolute inset-0 w-full h-full object-cover object-center"
-            poster="https://www.solidbackgrounds.com/images/1920x1080/1920x1080-black-solid-color-background.jpg"
+            className="absolute inset-0 w-full h-full object-cover object-center bg-slate-950"
           >
             <source src="https://jhic.rndlab.my.id/assets/hero.mp4" type="video/mp4" />
           </video>

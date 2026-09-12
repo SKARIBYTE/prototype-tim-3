@@ -64,17 +64,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" className={cn("antialiased", inter.variable, "font-sans", geist.variable, neuropol.variable)}>
+    <html lang="id" className={cn("antialiased", inter.variable, "font-sans", geist.variable, neuropol.variable)} suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://picsum.photos" />
         <link rel="dns-prefetch" href="https://picsum.photos" />
-        <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        />
       </head>
-      <body className="min-h-dvh flex flex-col bg-white text-slate-900">
+      <body className="min-h-dvh flex flex-col bg-white text-slate-900" suppressHydrationWarning>
         <LenisProvider>
           <Navbar />
           <main id="main-content" className="flex-1">

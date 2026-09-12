@@ -37,7 +37,7 @@ export default function ChatBot() {
       id: "welcome",
       role: "assistant",
       content: t.chatbot.welcome,
-      timestamp: Date.now(),
+      timestamp: 0,
     },
   ]);
   const [input, setInput] = useState("");
@@ -140,6 +140,7 @@ export default function ChatBot() {
     <>
       <Button
         type="button"
+        suppressHydrationWarning
         onClick={() => setIsOpen(!isOpen)}
         className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full shadow-lg cursor-pointer active:scale-95 transition-all duration-200"
         aria-label={isOpen ? t.chatbot.close_aria : t.chatbot.open_aria}

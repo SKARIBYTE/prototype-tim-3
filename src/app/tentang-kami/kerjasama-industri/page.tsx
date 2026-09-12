@@ -75,32 +75,32 @@ const industries = [
 
 const heroCards = [
   {
-    icon: <Factory className="size-5 text-orange-400" />,
+    icon: <Factory className="size-5 text-orange-600" />,
     title: "Industri Otomotif",
-    description: "Honda & Yamaha — Mitra Utama PKL & Kelas Industri",
+    description: "Honda & Yamaha - Mitra Utama PKL & Kelas Industri",
     date: "Kemitraan Aktif",
-    iconClassName: "text-orange-500",
-    titleClassName: "text-orange-400",
+    iconClassName: "text-orange-600",
+    titleClassName: "text-orange-600",
     className:
       "[grid-area:stack] hover:-translate-y-10 focus:-translate-y-10 transition-all duration-500",
   },
   {
-    icon: <Zap className="size-5 text-amber-400" />,
+    icon: <Zap className="size-5 text-amber-600" />,
     title: "Sektor Energi",
-    description: "Indonesia Power & PJB — Sertifikasi & Magang Pembangkitan",
+    description: "Indonesia Power & PJB - Sertifikasi & Magang Pembangkitan",
     date: "Kemitraan Aktif",
-    iconClassName: "text-amber-500",
-    titleClassName: "text-amber-400",
+    iconClassName: "text-amber-600",
+    titleClassName: "text-amber-600",
     className:
       "[grid-area:stack] max-sm:translate-x-6 sm:translate-x-12 translate-y-10 hover:-translate-y-1 focus:-translate-y-1 transition-all duration-500",
   },
   {
-    icon: <Globe className="size-5 text-blue-400" />,
+    icon: <Globe className="size-5 text-blue-600" />,
     title: "Teknologi & Media",
     description: "Jagoan Hosting, LG, Polytron & Jawa Pos Group",
     date: "Kemitraan Aktif",
-    iconClassName: "text-blue-500",
-    titleClassName: "text-blue-400",
+    iconClassName: "text-blue-600",
+    titleClassName: "text-blue-600",
     className:
       "[grid-area:stack] max-sm:translate-x-12 sm:translate-x-24 translate-y-20 hover:translate-y-10 focus:translate-y-10 transition-all duration-500",
   },

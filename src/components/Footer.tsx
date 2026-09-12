@@ -31,23 +31,23 @@ const quickLinks = navigationData.flatMap((section) => {
 const socialLinks = [
   {
     href: "https://www.youtube.com/channel/UCGGVdb_Wh1lvn8HIoMKdiLA",
-    icon: "fa-brands fa-youtube",
     label: "YouTube",
+    iconId: "youtube",
   },
   {
     href: "https://www.instagram.com/skariga_official",
-    icon: "fa-brands fa-instagram",
     label: "Instagram",
+    iconId: "instagram",
   },
   {
     href: "https://www.facebook.com/SKARIGA/?locale=id_ID",
-    icon: "fa-brands fa-facebook-f",
     label: "Facebook",
+    iconId: "facebook",
   },
   {
     href: "https://www.tiktok.com/@skariga",
-    icon: "fa-brands fa-tiktok",
     label: "TikTok",
+    iconId: "tiktok",
   },
 ];
 
@@ -97,7 +97,9 @@ export default function Footer() {
                   className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-slate-300 transition-colors hover:bg-primary hover:text-white"
                   aria-label={social.label}
                 >
-                  <i className={`${social.icon} text-sm`} aria-hidden="true" />
+                  <svg className="h-4 w-4 fill-current" aria-hidden="true">
+                    <use href={`/assets/icons/sprite.svg#${social.iconId}`} />
+                  </svg>
                 </a>
               ))}
             </div>
