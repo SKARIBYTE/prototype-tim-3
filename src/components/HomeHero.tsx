@@ -33,7 +33,7 @@ export default function HomeHero() {
             className="absolute inset-0 w-full h-full object-cover object-center"
             poster="https://www.solidbackgrounds.com/images/1920x1080/1920x1080-black-solid-color-background.jpg"
           >
-            <source src="/assets/videos/hero.mp4" type="video/mp4" />
+            <source src="https://jhic.rndlab.my.id/assets/hero.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-slate-900/55" />
           <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-900/10 to-transparent" />
